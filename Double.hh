@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:26:28 2013 sergioandres baezserrano
-// Last update Thu Feb 14 19:27:01 2013 sergioandres baezserrano
+// Last update Fri Feb 15 11:00:13 2013 sergioandres baezserrano
 //
 
 #ifndef DOUBLE_HH_
@@ -15,6 +15,10 @@
 
 class Double : public IOperand
 {
+  private:
+    eOperandType    type;
+    double          number;
+    IOperand *      createDouble(const std::string & value);
   public:
     virtual std::string const & toString() const;
     virtual int getPresicion() const;

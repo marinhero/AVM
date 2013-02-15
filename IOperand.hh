@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 18:33:54 2013 sergioandres baezserrano
-// Last update Thu Feb 14 18:58:16 2013 sergioandres baezserrano
+// Last update Fri Feb 15 10:17:14 2013 sergioandres baezserrano
 //
 
 #ifndef IOPERAND_HH_
@@ -13,6 +13,15 @@
 
 #include <iostream>
 #include <string>
+
+typedef enum
+{
+  Int8,
+  Int16,
+  Int32,
+  Float,
+  Double
+} eOperandType;
 
 class IOperand
 {

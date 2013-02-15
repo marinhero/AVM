@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:08:29 2013 sergioandres baezserrano
-// Last update Thu Feb 14 19:09:13 2013 sergioandres baezserrano
+// Last update Fri Feb 15 10:59:23 2013 sergioandres baezserrano
 //
 
 #ifndef INT16_HH_
@@ -15,6 +15,10 @@
 
 class Int16 : public IOperand
 {
+  private:
+    eOperandType    type;
+    int             number;
+    IOperand *      createInt16(const std::string & value);
   public:
     virtual std::string const & toString() const;
     virtual int getPresicion() const;
