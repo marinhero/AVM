@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:26:28 2013 sergioandres baezserrano
-// Last update Fri Feb 15 11:00:13 2013 sergioandres baezserrano
+// Last update Fri Feb 15 13:23:06 2013 sergioandres baezserrano
 //
 
 #ifndef DOUBLE_HH_
@@ -16,17 +16,20 @@
 class Double : public IOperand
 {
   private:
-    eOperandType    type;
-    double          number;
-    IOperand *      createDouble(const std::string & value);
+    eOperandType                    type;
+    double                          number;
+    IOperand *                      createDouble(const std::string & value);
   public:
-    virtual std::string const & toString() const;
-    virtual int getPresicion() const;
-    virtual eOperandType getType() const;
-    virtual IOperand * operator+(const IOperand &rhs) const;
-    virtual IOperand * operator-(const IOperand &rhs) const;
-    virtual IOperand * operator*(const IOperand &rhs) const;
-    virtual IOperand * operator/(const IOperand &rhs) const;
-    virtual IOperand * operator%(const IOperand &rhs) const;
+    Double();
+    ~Double();
+    double                          getNumber() const;
+    virtual std::string const &     toString() const;
+    virtual int                     getPresicion() const;
+    virtual eOperandType            getType() const;
+    virtual IOperand *              operator+(const IOperand &rhs) const;
+    virtual IOperand *              operator-(const IOperand &rhs) const;
+    virtual IOperand *              operator*(const IOperand &rhs) const;
+    virtual IOperand *              operator/(const IOperand &rhs) const;
+    virtual IOperand *              operator%(const IOperand &rhs) const;
     virtual ~IOperand();
 };

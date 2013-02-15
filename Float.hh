@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:25:24 2013 sergioandres baezserrano
-// Last update Fri Feb 15 11:00:00 2013 sergioandres baezserrano
+// Last update Fri Feb 15 13:22:27 2013 sergioandres baezserrano
 //
 
 #ifndef FLOAT_HH_
@@ -16,18 +16,21 @@
 class Float : public IOperand
 {
   private:
-    eOperandType    type;
-    float             number;
-    IOperand *      createFloat(const std::string & value);
+    eOperandType                    type;
+    float                           number;
+    IOperand *                      createFloat(const std::string & value);
   public:
-    virtual std::string const & toString() const;
-    virtual int getPresicion() const;
-    virtual eOperandType getType() const;
-    virtual IOperand * operator+(const IOperand &rhs) const;
-    virtual IOperand * operator-(const IOperand &rhs) const;
-    virtual IOperand * operator*(const IOperand &rhs) const;
-    virtual IOperand * operator/(const IOperand &rhs) const;
-    virtual IOperand * operator%(const IOperand &rhs) const;
+    Float();
+    ~Float();
+    float                           getNumber() const;
+    virtual std::string const &     toString() const;
+    virtual int                     getPresicion() const;
+    virtual eOperandType            getType() const;
+    virtual IOperand *              operator+(const IOperand &rhs) const;
+    virtual IOperand *              operator-(const IOperand &rhs) const;
+    virtual IOperand *              operator*(const IOperand &rhs) const;
+    virtual IOperand *              operator/(const IOperand &rhs) const;
+    virtual IOperand *              operator%(const IOperand &rhs) const;
     virtual ~IOperand();
 };
 
