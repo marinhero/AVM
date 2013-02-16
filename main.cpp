@@ -5,22 +5,17 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Fri Feb 15 10:13:33 2013 sergioandres baezserrano
-// Last update Sat Feb 16 10:33:41 2013 sergioandres baezserrano
+// Last update Sat Feb 16 11:08:09 2013 sergioandres baezserrano
 //
-
-#include <sstream>
 #include <iostream>
+#include "Data_Manager.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-  std::string hola = "42";
-  int value = 0;
-
-  std::istringstream test(hola);
-  test >> value;
-
-  std::cout     << value
-                << value + 42
-                << std::endl;
-  return (0);
+    Data_Manager p = new Data_Manager();
+    if (argc == 1)
+        p.read_from(0, "stdin");
+    else if (argc >= 2)
+        p.read_from(1, argv[1]);
+    return (0);
 }

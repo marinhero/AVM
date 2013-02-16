@@ -1,11 +1,11 @@
 //
-// errors.hpp for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
+// Error.hpp for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
 //
 // Made by Marin Alcaraz
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:26:06 2013 Marin Alcaraz
-// Last update Fri Feb 15 17:16:19 2013 Marin Alcaraz
+// Last update Sat Feb 16 10:48:16 2013 Marin Alcaraz
 //
 
 class Errors {
