@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:01:47 2013 sergioandres baezserrano
-// Last update Fri Feb 15 13:14:20 2013 sergioandres baezserrano
+// Last update Sat Feb 16 11:02:01 2013 sergioandres baezserrano
 //
 
 #ifndef INT8_HH_
@@ -17,10 +17,12 @@ class Int8 : public IOperand
 {
   private:
     eOperandType                    type;
+    std::string                     value;
     int                             number;
-    IOperand *                      createInt8(const std::string & value);
+    int                             presicion;
   public:
     Int8();
+    Int8(std::string const &);
     ~Int8();
     int                             getNumber() const;
     virtual std::string const &     toString() const;
@@ -31,7 +33,6 @@ class Int8 : public IOperand
     virtual IOperand *              operator*(const IOperand &rhs) const;
     virtual IOperand *              operator/(const IOperand &rhs) const;
     virtual IOperand *              operator%(const IOperand &rhs) const;
-    virtual ~IOperand();
 };
 
 #endif

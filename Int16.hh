@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:08:29 2013 sergioandres baezserrano
-// Last update Fri Feb 15 13:20:03 2013 sergioandres baezserrano
+// Last update Fri Feb 15 16:58:02 2013 sergioandres baezserrano
 //
 
 #ifndef INT16_HH_
@@ -18,7 +18,6 @@ class Int16 : public IOperand
   private:
     eOperandType                    type;
     int                             number;
-    IOperand *                      createInt16(const std::string & value);
   public:
     Int16();
     ~Int16();

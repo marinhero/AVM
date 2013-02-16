@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:26:28 2013 sergioandres baezserrano
-// Last update Fri Feb 15 13:23:06 2013 sergioandres baezserrano
+// Last update Fri Feb 15 16:59:08 2013 sergioandres baezserrano
 //
 
 #ifndef DOUBLE_HH_
@@ -18,7 +18,6 @@ class Double : public IOperand
   private:
     eOperandType                    type;
     double                          number;
-    IOperand *                      createDouble(const std::string & value);
   public:
     Double();
     ~Double();

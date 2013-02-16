@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 18:33:54 2013 sergioandres baezserrano
-// Last update Fri Feb 15 10:17:14 2013 sergioandres baezserrano
+// Last update Sat Feb 16 11:02:03 2013 sergioandres baezserrano
 //
 
 #ifndef IOPERAND_HH_
@@ -13,15 +13,25 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 typedef enum
 {
-  Int8,
-  Int16,
-  Int32,
-  Float,
-  Double
+  TYPE_INT8,
+  TYPE_INT16,
+  TYPE_INT32,
+  TYPE_FLOAT,
+  TYPE_DOUBLE
 } eOperandType;
+
+enum
+{
+  PRESICION_INT8,
+  PRESICION_INT16,
+  PRESICION_INT32,
+  PRESICION_FLOAT,
+  PRESICION_DOUBLE
+};
 
 class IOperand
 {
@@ -34,7 +44,7 @@ class IOperand
     virtual IOperand * operator*(const IOperand &rhs) const = 0;
     virtual IOperand * operator/(const IOperand &rhs) const = 0;
     virtual IOperand * operator%(const IOperand &rhs) const = 0;
-    virtual ~IOperand();
+    virtual ~IOperand() {}
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 14 19:25:24 2013 sergioandres baezserrano
-// Last update Fri Feb 15 13:22:27 2013 sergioandres baezserrano
+// Last update Fri Feb 15 16:59:00 2013 sergioandres baezserrano
 //
 
 #ifndef FLOAT_HH_
@@ -18,7 +18,6 @@ class Float : public IOperand
   private:
     eOperandType                    type;
     float                           number;
-    IOperand *                      createFloat(const std::string & value);
   public:
     Float();
     ~Float();
