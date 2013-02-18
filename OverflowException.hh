@@ -5,8 +5,11 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:42:21 2013 sergioandres baezserrano
-// Last update Sat Feb 16 11:50:38 2013 sergioandres baezserrano
+// Last update Mon Feb 18 21:05:08 2013 sergioandres baezserrano
 //
+
+#ifndef OVERFLOWEXCEPTION_HH_
+#  define OVERFLOWEXCEPTION_HH_
 
 #include "VMException.hh"
 
@@ -16,3 +19,5 @@ class OverflowException : public VMException
     OverflowException(std::string msg) throw();
     virtual ~OverflowException() throw();
 };
+
+#endif /* !OVERFLOWEXCEPTION_HH_ */
