@@ -5,10 +5,11 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 16:35:44 2013 sergioandres baezserrano
-// Last update Tue Feb 19 16:51:51 2013 sergioandres baezserrano
+// Last update Tue Feb 19 19:31:40 2013 sergioandres baezserrano
 //
 
 #include "InstructionFactory.hh"
+#include "VMException.hh"
 
 InstructionFactory::InstructionFactory()
 {
@@ -30,4 +31,5 @@ Instruction::IInstruction *     InstructionFactory::createInstruction(std::strin
     InstructionHandler::IInstrunctionHandler *Ihandler = this->map[IName];
     return (Ihandler->create());
   }
+  throw InstNotExistException(IName);
 }

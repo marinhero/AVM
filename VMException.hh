@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Tue Feb 19 12:47:15 2013 sergioandres baezserrano
+// Last update Tue Feb 19 21:06:14 2013 sergioandres baezserrano
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -43,6 +43,27 @@ class BadParameterException : public VMException
   public:
     BadParameterException(std::string msg) throw();
     ~BadParameterException() throw();
+};
+
+class InstNotExistException : public VMException
+{
+  public:
+    InstNotExistException(std::string msg) throw();
+    ~InstNotExistException() throw();
+};
+
+class OpNotExistException : public VMException
+{
+  public:
+    OpNotExistException(std::string msg) throw();
+    ~OpNotExistException() throw();
+};
+
+class DivisionByZeroException : public VMException
+{
+  public:
+    DivisionByZeroException(std::string msg) throw();
+    ~DivisionByZeroException() throw();
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Tue Feb 19 12:49:02 2013 sergioandres baezserrano
+// Last update Tue Feb 19 21:08:22 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -47,5 +47,32 @@ BadParameterException::BadParameterException(std::string msg) throw()
 }
 
 BadParameterException::~BadParameterException() throw()
+{
+}
+
+InstNotExistException::InstNotExistException(std::string msg) throw()
+  : VMException(std::string("Instruction does not exist Exception: ") + msg)
+{
+}
+
+InstNotExistException::~InstNotExistException() throw()
+{
+}
+
+OpNotExistException::OpNotExistException(std::string msg) throw()
+  : VMException(std::string("Operand does not exist Exception: ") + msg)
+{
+}
+
+OpNotExistException::~OpNotExistException() throw()
+{
+}
+
+DivisionByZeroException::DivisionByZeroException(std::string msg) throw()
+  : VMException(std::string("Division by zero Exception: ") + msg)
+{
+}
+
+DivisionByZeroException::~DivisionByZeroException()
 {
 }
