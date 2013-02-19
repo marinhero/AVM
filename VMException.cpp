@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Tue Feb 19 12:21:45 2013 sergioandres baezserrano
+// Last update Tue Feb 19 12:49:02 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -37,6 +37,15 @@ ExitInstException::ExitInstException(std::string msg) throw()
 {
 }
 
-ExitInstException::~ExitInstException throw()
+ExitInstException::~ExitInstException() throw()
+{
+}
+
+BadParameterException::BadParameterException(std::string msg) throw()
+  : VMException(std::string("Bad Parameter Exception: ") + msg)
+{
+}
+
+BadParameterException::~BadParameterException() throw()
 {
 }

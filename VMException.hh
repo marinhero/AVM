@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Mon Feb 18 21:55:48 2013 sergioandres baezserrano
+// Last update Tue Feb 19 12:47:15 2013 sergioandres baezserrano
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -21,21 +21,28 @@ class VMException : public std::exception
   public:
     VMException(std::string msg) throw();
     virtual const char *    what() const throw();
-    virtual ~VMException() throw();
+    ~VMException() throw();
 };
 
 class OverflowException : public VMException
 {
   public:
     OverflowException(std::string msg) throw();
-    virtual ~OverflowException() throw();
+    ~OverflowException() throw();
 };
 
 class ExitInstException : public VMException
 {
   public:
     ExitInstException(std::string msg) throw();
-    virtual ~ExitInstException() throw();
+    ~ExitInstException() throw();
+};
+
+class BadParameterException : public VMException
+{
+  public:
+    BadParameterException(std::string msg) throw();
+    ~BadParameterException() throw();
 };
 
 #endif
