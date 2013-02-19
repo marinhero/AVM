@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Mon Feb 18 21:55:43 2013 sergioandres baezserrano
+// Last update Tue Feb 19 12:21:45 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -24,10 +24,19 @@ VMException::~VMException() throw()
 }
 
 OverflowException::OverflowException(std::string msg) throw()
-  : VMException(std::string("Overflow Exeption: ") + msg)
+  : VMException(std::string("Overflow Exception: ") + msg)
 {
 }
 
 OverflowException::~OverflowException() throw()
+{
+}
+
+ExitInstException::ExitInstException(std::string msg) throw()
+  : VMException(std::string("No exit instruction Exception: ") + msg)
+{
+}
+
+ExitInstException::~ExitInstException throw()
 {
 }
