@@ -12,12 +12,14 @@
 #  define ABSTRACTVM_HH_
 
 #include "OperandFactory.hh"
+#include "Memory.hh"
 
 class AbstractVM
 {
   protected:
     static  AbstractVM  *theOne;
     OperandFactory      *operandFactory;
+    Memory::IStack      *stack;
 
   public:
     AbstractVM();
@@ -25,6 +27,7 @@ class AbstractVM
     void initOperands();
     static AbstractVM   *getVM();
     OperandFactory      *getOperandFactory() const;
+    Memory::IStack      *getStack() const;
 };
 
 #endif /* !ABSTRACTVM_HH_ */

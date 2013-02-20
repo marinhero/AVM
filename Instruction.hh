@@ -5,13 +5,15 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 18:57:29 2013 sergioandres baezserrano
-// Last update Tue Feb 19 16:55:47 2013 sergioandres baezserrano
+// Last update Wed Feb 20 22:12:41 2013 sergioandres baezserrano
 //
 
 #ifndef INSTRUCTION_HH_
 # define INSTRUCTION_HH_
 
 #include <string>
+#include <list>
+#include "Operand.hh"
 
 namespace Instruction
 {
@@ -19,7 +21,7 @@ namespace Instruction
   {
     public:
       //virtual void init() = 0;
-      //virtual void end() = 0;
+      virtual void end() = 0;
       virtual void execute() = 0;
       virtual void addParameter(std::string &param) = 0;
       virtual void operator()() = 0;
@@ -30,12 +32,25 @@ namespace Instruction
   {
     public:
       AInstruction();
+      virtual ~AInstruction();
       //virtual void init();
-      //virtual void end();
       virtual void addParameter(std::string &param);
       virtual void operator()();
       virtual void execute() = 0;
-      virtual ~AInstruction() = 0;
+      virtual void end() = 0;
+  };
+
+  class AInstructionParams : public AInstruction
+  {
+    protected:
+      std::list<std::string>    params;
+      Operand::IOperand         *op;
+
+    public:
+      AInstructionParams();
+      virtual ~AInstructionParams();
+      virtual void end();
+      virtual void addParameter(std::string &param);
   };
 
   class Add : public AInstruction
@@ -44,6 +59,54 @@ namespace Instruction
       Add();
       ~Add();
       void  execute();
+  };
+
+  class Sub : public AInstruction
+  {
+    public:
+      Sub();
+      ~Sub();
+      void execute();
+  };
+
+  class Mul : public AInstruction
+  {
+    public:
+      Mul();
+      ~Mul();
+      void execute();
+  };
+
+  class Div : public AInstruction
+  {
+    public:
+      Div();
+      ~Div();
+      void execute();
+  };
+
+  class Mod : public AInstruction
+  {
+    public:
+      Mod();
+      ~Mod();
+      void execute();
+  };
+
+  class Dump : public AInstruction
+  {
+    public:
+      Dump();
+      ~Dump();
+      void execute();
+  };
+
+  class Pop : public AInstruction
+  {
+    public:
+      Pop();
+      ~Pop();
+      void execute();
   };
 };
 

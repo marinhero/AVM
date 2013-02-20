@@ -29,10 +29,58 @@ namespace InstructionHandler
       std::string                               InstructionName;
     public:
       AInstructionHandler(std::string IName);
+      virtual ~AInstructionHandler();
       virtual const std::string &               getInstructionName() const;
       virtual Instruction::IInstruction *       create();
       virtual Instruction::IInstruction *       createInstruction() = 0;
-      virtual ~AInstructionHandler() = 0;
+  };
+
+  class AddHandler : public AInstructionHandler
+  {
+    public:
+      AddHandler();
+      ~AddHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
+  class SubHandler : public AInstructionHandler
+  {
+    public:
+      SubHandler();
+      ~SubHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
+  class MulHandler : public AInstructionHandler
+  {
+    public:
+      MulHandler();
+      ~MulHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
+  class DivHandler : public AInstructionHandler
+  {
+    public:
+      DivHandler();
+      ~DivHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
+  class ModHandler : public AInstructionHandler
+  {
+    public:
+      ModHandler();
+      ~ModHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
+  class DumpHandler : public AInstructionHandler
+  {
+    public:
+      DumpHandler();
+      ~DumpHandler();
+      virtual Instruction::IInstruction *       createInstruction();
   };
 };
 
