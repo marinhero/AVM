@@ -38,6 +38,46 @@ namespace OperandHandler
       virtual eOperandType getType() const;
       virtual Operand::IOperand * create(const std::string & val) = 0;
   };
+
+  class Int8Handler : public AOperandHandler
+  {
+    public:
+      Int8Handler();
+      ~Int8Handler();
+      virtual Operand::IOperand * create(const std::string &val);
+  };
+
+  class Int16Handler : public AOperandHandler
+  {
+    public:
+      Int16Handler();
+      ~Int16Handler();
+      virtual Operand::IOperand * create(const std::string &val);
+  };
+
+  class Int32Handler : public AOperandHandler
+  {
+    public:
+      Int32Handler();
+      ~Int32Handler();
+      virtual Operand::IOperand * create(const std::string &val);
+  };
+
+  class FloatHandler : public AOperandHandler
+  {
+    public:
+      FloatHandler();
+      ~FloatHandler();
+      virtual Operand::IOperand * create(const std::string &val);
+  };
+
+  class DoubleHandler : public AOperandHandler
+  {
+    public:
+      DoubleHandler();
+      ~DoubleHandler();
+      virtual Operand::IOperand * create(const std::string &val);
+  };
 };
 
 #endif /* !OPERANDHANDLER_HH_ */
