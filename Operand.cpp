@@ -5,10 +5,10 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:51:53 2013 sergioandres baezserrano
-// Last update Tue Feb 19 22:46:43 2013 sergioandres baezserrano
+// Last update Wed Feb 20 19:43:33 2013 sergioandres baezserrano
 //
 
-#include <sstream>
+#include <cmath>
 #include "AbstractVM.hh"
 #include "Operand.hh"
 #include "VMException.hh"
@@ -17,8 +17,8 @@ template<typename T>
 Operand::AOperand<T>::AOperand(std::string _name, eOperandType _type, int _precision)
   : type(_type), precision(_precision)
 {
-  this->val = Operand::AOperand<T>::convertNameToValue(_name);
-  this->name = Operand::AOperand<T>::convertValueToName(this->val);
+  this->val = Operand::Converter<T>::convertNameToValue(_name);
+  this->name = Operand::Converter<T>::convertValueToName(this->val);
 }
 
 template<typename T>
@@ -45,27 +45,7 @@ eOperandType Operand::AOperand<T>::getType() const
 }
 
 template<typename T>
-T Operand::AOperand<T>::convertNameToValue(std::string name)
-{
-  T value;
-  std::stringstream conv;
-  conv << name;
-  conv >> value;
-  return (value);
-}
-
-template<typename T>
-std::string Operand::AOperand<T>::convertValueToName(T val)
-{
-  std::string name;
-  std::stringstream conv;
-  conv << val;
-  conv >> name;
-  return (name);
-}
-
-template<typename T>
-Operand::IOperand * Operand::AOperand<T>::operator+(const IOperand &rhs)
+Operand::IOperand * Operand::AOperand<T>::operator+(const IOperand &rhs) const
 {
   T otherVal;
   T res;
@@ -73,16 +53,16 @@ Operand::IOperand * Operand::AOperand<T>::operator+(const IOperand &rhs)
 
   if (type < rhs.getType())
     return (rhs + *this);
-  otherVal = Operand::AOperand<T>::convertNameToValue(rhs.toString());
+  otherVal = Operand::Converter<T>::convertNameToValue(rhs.toString());
   res = val + otherVal;
   if ((res - otherVal) != val)
     throw OverflowException(name + "+" + rhs.toString());
-  resultName = Operand::AOperand<T>::convertValueToName(res);
+  resultName = Operand::Converter<T>::convertValueToName(res);
   return (AbstractVM::getVM()->getOperandFactory()->createOperand(type, resultName));
 }
 
 template<typename T>
-Operand::IOperand * Operand::AOperand<T>::operator-(const IOperand &rhs)
+Operand::IOperand * Operand::AOperand<T>::operator-(const IOperand &rhs) const
 {
   T otherVal;
   T res;
@@ -90,16 +70,16 @@ Operand::IOperand * Operand::AOperand<T>::operator-(const IOperand &rhs)
 
   if (type < rhs.getType())
     return (rhs - *this);
-  otherVal = Operand::AOperand<T>::convertNameToValue(rhs.toString());
+  otherVal = Operand::Converter<T>::convertNameToValue(rhs.toString());
   res = val - otherVal;
   if ((res + otherVal) != val)
     throw OverflowException(name + "-" + rhs.toString());
-  resultName = Operand::AOperand<T>::convertValueToName(res);
+  resultName = Operand::Converter<T>::convertValueToName(res);
   return (AbstractVM::getVM()->getOperandFactory()->createOperand(type, resultName));
 }
 
 template<typename T>
-Operand::IOperand * Operand::AOperand<T>::operator*(const IOperand &rhs)
+Operand::IOperand * Operand::AOperand<T>::operator*(const IOperand &rhs) const
 {
   T otherVal;
   T res;
@@ -107,19 +87,94 @@ Operand::IOperand * Operand::AOperand<T>::operator*(const IOperand &rhs)
 
   if (type < rhs.getType())
     return (rhs * *this);
-  otherVal = Operand::AOperand<T>::convertNameToValue(rhs.toString());
+  otherVal = Operand::Converter<T>::convertNameToValue(rhs.toString());
   res = val * otherVal;
   if ((res / otherVal) != val)
     throw OverflowException(name + "*" + rhs.toString());
-  resultName = Operand::AOperand<T>::convertValueToName(res);
+  resultName = Operand::Converter<T>::convertValueToName(res);
   return (AbstractVM::getVM()->getOperandFactory()->createOperand(type, resultName));
 }
 
 template<typename T>
-Operand::IOperand * Operand::AOperand<T>::operator/(const IOperand &rhs)
+Operand::IOperand * Operand::AOperand<T>::operator/(const IOperand &rhs) const
 {
+  eOperandType bigOperandType;
+  std::string resultName;
+  T otherVal;
+  T res;
 
+  otherVal = Operand::Converter<T>::convertNameToValue(rhs.toString());
+  if (otherVal != 0)
+  {
+    bigOperandType = std::max(getType(), rhs.getType());
+    res = val / otherVal;
+    resultName = Operand::Converter<T>::convertValueToName(res);
+    return (AbstractVM::getVM()->getOperandFactory()->createOperand(bigOperandType, resultName));
+  }
+  throw DivisionByZeroException("Division by zero");
 }
 
+
 template<typename T>
-Operand::IOperand * Operand::AOperand<T>::operator%(const IOperand &rhs);
+Operand::IOperand * Operand::AOperand<T>::operator%(const IOperand &rhs) const
+{
+  eOperandType bigOperandType;
+  std::string resultName;
+  T otherVal;
+  T res;
+
+  otherVal = Operand::Converter<T>::convertNameToValue(rhs.toString());
+  if (otherVal != 0)
+  {
+    bigOperandType = std::max(getType(), rhs.getType());
+    res = Modulo<T>::modulo(val, otherVal);
+    resultName = Operand::Converter<T>::convertValueToName(res);
+    return (AbstractVM::getVM()->getOperandFactory()->createOperand(bigOperandType, resultName));
+  }
+  throw DivisionByZeroException("Modulo by zero");
+}
+
+Operand::Int8::Int8(const std::string & val)
+: Operand::AOperand<char>(val, TYPE_INT8, PRESICION_INT8)
+{
+}
+
+Operand::Int8::~Int8()
+{
+}
+
+Operand::Int16::Int16(const std::string & val)
+: Operand::AOperand<short>(val, TYPE_INT16, PRESICION_INT16)
+{
+}
+
+Operand::Int16::~Int16()
+{
+}
+
+Operand::Int32::Int32(const std::string & val)
+  : Operand::AOperand<int>(val, TYPE_INT32, PRESICION_INT32)
+{
+}
+
+Operand::Int32::~Int32()
+{
+}
+
+Operand::Float::Float(const std::string & val)
+  : Operand::AOperand<float>(val, TYPE_FLOAT, PRESICION_FLOAT)
+{
+}
+
+Operand::Float::~Float()
+{
+}
+
+Operand::Double::Double(const std::string & val)
+  : Operand::AOperand<double>(val, TYPE_DOUBLE, PRESICION_DOUBLE)
+{
+}
+
+Operand::Double::~Double()
+{
+}

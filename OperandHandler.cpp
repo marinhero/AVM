@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 19:04:51 2013 sergioandres baezserrano
-// Last update Tue Feb 19 19:16:25 2013 sergioandres baezserrano
+// Last update Wed Feb 20 19:49:42 2013 sergioandres baezserrano
 //
 
 #include "OperandHandler.hh"
@@ -32,4 +32,74 @@ int OperandHandler::AOperandHandler::getPresicion() const
 eOperandType OperandHandler::AOperandHandler::getType() const
 {
   return (this->type);
+}
+
+OperandHandler::Int8Handler::Int8Handler()
+  : AOperandHandler(std::string("Int8Handler"), TYPE_INT8, PRESICION_INT8)
+{
+}
+
+OperandHandler::Int8Handler::~Int8Handler()
+{
+}
+
+Operand::IOperand * OperandHandler::Int8Handler::create(const std::string &val)
+{
+  return (new Operand::Int8(val));
+}
+
+OperandHandler::Int16Handler::Int16Handler()
+  : AOperandHandler(std::string("Int16Handler"), TYPE_INT16, PRESICION_INT16)
+{
+}
+
+OperandHandler::Int16Handler::~Int16Handler()
+{
+}
+
+Operand::IOperand * OperandHandler::Int16Handler::create(const std::string &val)
+{
+  return (new Operand::Int16(val));
+}
+
+OperandHandler::Int32Handler::Int32Handler()
+  : AOperandHandler(std::string("Int32Handler"), TYPE_INT32, PRESICION_INT32)
+{
+}
+
+OperandHandler::Int32Handler::~Int32Handler()
+{
+}
+
+Operand::IOperand * OperandHandler::Int32Handler::create(const std::string &val)
+{
+  return (new Operand::Int32(val));
+}
+
+OperandHandler::FloatHandler::FloatHandler()
+  : AOperandHandler(std::string("FloatHandler"), TYPE_FLOAT, PRESICION_FLOAT)
+{
+}
+
+OperandHandler::FloatHandler::~FloatHandler()
+{
+}
+
+Operand::IOperand * OperandHandler::FloatHandler::create(const std::string &val)
+{
+  return (new Operand::Float(val));
+}
+
+OperandHandler::DoubleHandler::DoubleHandler()
+  : AOperandHandler(std::string("DoubleHandler"), TYPE_DOUBLE, PRESICION_DOUBLE)
+{
+}
+
+OperandHandler::DoubleHandler::~DoubleHandler()
+{
+}
+
+Operand::IOperand * OperandHandler::DoubleHandler::create(const std::string &val)
+{
+  return (new Operand::Double(val));
 }

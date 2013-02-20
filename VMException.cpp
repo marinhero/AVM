@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Tue Feb 19 21:08:22 2013 sergioandres baezserrano
+// Last update Wed Feb 20 16:48:04 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -73,6 +73,6 @@ DivisionByZeroException::DivisionByZeroException(std::string msg) throw()
 {
 }
 
-DivisionByZeroException::~DivisionByZeroException()
+DivisionByZeroException::~DivisionByZeroException() throw()
 {
 }
