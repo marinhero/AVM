@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Wed Feb 20 18:00:30 2013 Marin Alcaraz
+// Last update Wed Feb 20 18:08:01 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -108,6 +108,7 @@ int Data_Manager :: read_file(char *file_name)
     int         flag;
     std::string line;
 
+    flag = 1;
     std::ifstream myfile (file_name);
     if (myfile.is_open())
     {
@@ -118,6 +119,8 @@ int Data_Manager :: read_file(char *file_name)
                 flag *= check_line(line);
         }
         myfile.close();
+        if (flag == 1)
+            return (1);
     }
     else
         std::cout << "Unable to open file" << std::endl;
