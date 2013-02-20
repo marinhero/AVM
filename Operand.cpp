@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:51:53 2013 sergioandres baezserrano
-// Last update Tue Feb 19 21:08:25 2013 sergioandres baezserrano
+// Last update Tue Feb 19 22:46:43 2013 sergioandres baezserrano
 //
 
 #include <sstream>
@@ -116,6 +116,10 @@ Operand::IOperand * Operand::AOperand<T>::operator*(const IOperand &rhs)
 }
 
 template<typename T>
-Operand::IOperand * Operand::AOperand<T>::operator/(const IOperand &rhs);
+Operand::IOperand * Operand::AOperand<T>::operator/(const IOperand &rhs)
+{
+
+}
+
 template<typename T>
 Operand::IOperand * Operand::AOperand<T>::operator%(const IOperand &rhs);
