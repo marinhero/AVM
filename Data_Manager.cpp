@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Wed Feb 20 18:08:01 2013 Marin Alcaraz
+// Last update Wed Feb 20 20:02:16 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -38,10 +38,26 @@ char Data_Manager :: is_valid_word(std::string str)
    return ('Z');
 }
 
-int Data_Manager :: get_file_status()
+int Data_Manager :: get_file_status() const
 {
     return (this->file_status);
 }
+
+char* Data_Manager :: get_file_name() const
+{
+    return (this->name);
+}
+
+void Data_Manager :: set_file_status(int n)
+{
+    this->file_status = n;
+}
+
+void Data_Manager :: set_file_name(char *name)
+{
+    this->name = name;
+}
+
 
 int Data_Manager :: string_to_int(std::string str)
 {
@@ -103,7 +119,7 @@ void Data_Manager :: read_line()
     }
 }
 
-int Data_Manager :: read_file(char *file_name)
+void Data_Manager :: read_file(char *file_name)
 {
     int         flag;
     std::string line;
@@ -112,6 +128,7 @@ int Data_Manager :: read_file(char *file_name)
     std::ifstream myfile (file_name);
     if (myfile.is_open())
     {
+        this->set_file_name(file_name);
         while (myfile.good())
         {
             getline (myfile, line);
@@ -120,11 +137,12 @@ int Data_Manager :: read_file(char *file_name)
         }
         myfile.close();
         if (flag == 1)
-            return (1);
+            this->set_file_status(1);
+        else
+            this->set_file_status(0);
     }
     else
         std::cout << "Unable to open file" << std::endl;
-    return 0;
 }
 
 void Data_Manager :: read_from(int flag, char *file_name)
