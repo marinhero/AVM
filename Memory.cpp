@@ -5,11 +5,12 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Wed Feb 20 20:18:17 2013 sergioandres baezserrano
-// Last update Wed Feb 20 20:46:21 2013 sergioandres baezserrano
+// Last update Wed Feb 20 20:48:58 2013 sergioandres baezserrano
 //
 
 #include <iostream>
 #include "Memory.hh"
+#include "VMException.hh"
 
 Memory::Stack::Stack()
 {
