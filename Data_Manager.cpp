@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Tue Feb 19 21:04:26 2013 Marin Alcaraz
+// Last update Wed Feb 20 18:00:30 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -23,6 +23,7 @@ Data_Manager :: ~Data_Manager()
 
 int Data_Manager :: operator=(Data_Manager const obj)
 {
+
 }
 
 char Data_Manager :: is_valid_word(std::string str)
@@ -42,7 +43,16 @@ int Data_Manager :: get_file_status()
     return (this->file_status);
 }
 
-int Data_Manager :: check_line(std::string str) throw()
+int Data_Manager :: string_to_int(std::string str)
+{
+    int number;
+    std::stringstream ss(str);
+
+    ss >> number;
+    return (number);
+}
+
+std::string Data_Manager :: get_sequence(std::string str)
 {
     int     piv;
     int     piv2;
@@ -50,33 +60,34 @@ int Data_Manager :: check_line(std::string str) throw()
     std::string bk = "";
     std::string code = "";
 
-    if (this->is_valid_word(str) != 1)
-    {
-        bk = str;
-        piv = str.find(" ");
-        tmp = str.substr(0, piv);
-        //std::cout << tmp << std::endl;
-        code = this->is_valid_word(tmp);
-        str = str.substr(piv + 1);
-        piv2 = str.find("(");
-        tmp = str.substr(0,piv2);
-        code = code + this->is_valid_word(tmp);
-        //std::cout << tmp << std::endl;
-        str = str.substr(piv2 + 1);
-        piv = bk.find("(");
-        bk = bk.substr(piv + 1, (bk.length() - piv) - 2);
-        //std::cout << bk << std::endl;
+    bk = str;
+    piv = str.find(" ");
+    tmp = str.substr(0, piv);
+    code = this->is_valid_word(tmp);
+    str = str.substr(piv + 1);
+    piv2 = str.find("(");
+    tmp = str.substr(0,piv2);
+    code = code + this->is_valid_word(tmp);
+    str = str.substr(piv2 + 1);
+    piv = bk.find("(");
+    bk = bk.substr(piv + 1, (bk.length() - piv) - 2);
+    if (this->string_to_int(bk) > 0)
         code = code + 'C';
+    return (code);
+}
+
+int Data_Manager :: check_line(std::string str)
+{
+    std::string code = "";
+
+    if (this->is_valid_word(str) == 'Z')
+    {
+        code = this->get_sequence(str);
         if (code.compare("ABC") == 0)
             return (1);
-        else
-            throw Ex;
     }
     else
-    {
-        std::cout << str << std::endl;
         return (1);
-    }
     return (0);
 }
 
@@ -94,6 +105,7 @@ void Data_Manager :: read_line()
 
 int Data_Manager :: read_file(char *file_name)
 {
+    int         flag;
     std::string line;
 
     std::ifstream myfile (file_name);
@@ -102,13 +114,13 @@ int Data_Manager :: read_file(char *file_name)
         while (myfile.good())
         {
             getline (myfile, line);
-            check_line(line);
+            if (line[0] != ';' && line.empty() != true)
+                flag *= check_line(line);
         }
         myfile.close();
     }
-
     else
-        std::cout << "Unable to open file";
+        std::cout << "Unable to open file" << std::endl;
     return 0;
 }
 
