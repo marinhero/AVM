@@ -5,11 +5,12 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Wed Feb 20 20:02:16 2013 Marin Alcaraz
+// Last update Wed Feb 20 21:54:00 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
 #include "Grammar.hh"
+#include "VMException.hh"
 
 Data_Manager :: Data_Manager()
 {
@@ -92,7 +93,7 @@ std::string Data_Manager :: get_sequence(std::string str)
     return (code);
 }
 
-int Data_Manager :: check_line(std::string str)
+int Data_Manager :: check_line(std::string str, int line)
 {
     std::string code = "";
 
@@ -104,27 +105,33 @@ int Data_Manager :: check_line(std::string str)
     }
     else
         return (1);
+    throw SyntaxErrorException("", line);
     return (0);
 }
 
 void Data_Manager :: read_line()
 {
+    int         ln;
     std::string line;
 
     line = " ";
+    ln = 1;
     while (line.compare(";;"))
     {
         std::getline(std::cin, line);
-        check_line(line);
+        check_line(line, ln);
+        ln = ln + 1;
     }
 }
 
 void Data_Manager :: read_file(char *file_name)
 {
     int         flag;
+    int         ln;
     std::string line;
 
     flag = 1;
+    ln = 1;
     std::ifstream myfile (file_name);
     if (myfile.is_open())
     {
@@ -133,7 +140,8 @@ void Data_Manager :: read_file(char *file_name)
         {
             getline (myfile, line);
             if (line[0] != ';' && line.empty() != true)
-                flag *= check_line(line);
+                flag *= check_line(line, ln);
+            ln = ln + 1;
         }
         myfile.close();
         if (flag == 1)
@@ -142,7 +150,7 @@ void Data_Manager :: read_file(char *file_name)
             this->set_file_status(0);
     }
     else
-        std::cout << "Unable to open file" << std::endl;
+        throw FileException("error opening file");
 }
 
 void Data_Manager :: read_from(int flag, char *file_name)

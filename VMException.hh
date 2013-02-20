@@ -1,11 +1,11 @@
 //
-// VMException.hh for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// VMException.hh for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
 //
 // Made by Marin Alcaraz
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Tue Feb 19 21:10:32 2013 sergioandres baezserrano
+// Last update Wed Feb 20 21:43:06 2013 Marin Alcaraz
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -64,6 +64,20 @@ class DivisionByZeroException : public VMException
   public:
     DivisionByZeroException(std::string msg) throw();
     ~DivisionByZeroException() throw();
+};
+
+class SyntaxErrorException : public VMException
+{
+  public:
+   SyntaxErrorException(std::string msg, int ln) throw();
+    ~SyntaxErrorException() throw();
+};
+
+class FileException : public VMException
+{
+  public:
+   FileException(std::string msg) throw();
+    ~FileException() throw();
 };
 
 #endif

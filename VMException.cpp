@@ -1,14 +1,15 @@
 //
-// VMException.cpp for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// VMException.cpp for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
 //
 // Made by sergioandres baezserrano
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Wed Feb 20 16:48:04 2013 sergioandres baezserrano
+// Last update Wed Feb 20 21:54:24 2013 Marin Alcaraz
 //
 
 #include "VMException.hh"
+#include <iostream>
 
 VMException::VMException(std::string msg) throw() : message(msg)
 {
@@ -74,5 +75,24 @@ DivisionByZeroException::DivisionByZeroException(std::string msg) throw()
 }
 
 DivisionByZeroException::~DivisionByZeroException() throw()
+{
+}
+
+SyntaxErrorException::SyntaxErrorException(std::string msg, int ln) throw()
+  : VMException(std::string("") + msg)
+{
+    std::cout << "Syntax Error at line: " << ln;
+}
+
+SyntaxErrorException::~SyntaxErrorException() throw()
+{
+}
+
+FileException::FileException(std::string msg) throw()
+  : VMException(std::string("File Error Exception: ") + msg)
+{
+}
+
+FileException::~FileException() throw()
 {
 }
