@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Tue Feb 19 21:10:32 2013 sergioandres baezserrano
+// Last update Wed Feb 20 20:22:29 2013 sergioandres baezserrano
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -64,6 +64,13 @@ class DivisionByZeroException : public VMException
   public:
     DivisionByZeroException(std::string msg) throw();
     ~DivisionByZeroException() throw();
+};
+
+class StackException : public VMException
+{
+  public:
+    StackException(std::string msg) throw();
+    ~StackException() throw();
 };
 
 #endif

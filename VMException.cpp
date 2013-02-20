@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Wed Feb 20 16:48:04 2013 sergioandres baezserrano
+// Last update Wed Feb 20 20:23:46 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -74,5 +74,14 @@ DivisionByZeroException::DivisionByZeroException(std::string msg) throw()
 }
 
 DivisionByZeroException::~DivisionByZeroException() throw()
+{
+}
+
+StackException::StackException(std::string msg) throw()
+  : VMException(std::string("Stack Exception: ") + msg)
+{
+}
+
+StackException::~StackException() throw()
 {
 }

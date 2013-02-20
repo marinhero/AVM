@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:51:53 2013 sergioandres baezserrano
-// Last update Wed Feb 20 19:43:33 2013 sergioandres baezserrano
+// Last update Wed Feb 20 19:55:28 2013 sergioandres baezserrano
 //
 
 #include <cmath>
@@ -127,7 +127,7 @@ Operand::IOperand * Operand::AOperand<T>::operator%(const IOperand &rhs) const
   if (otherVal != 0)
   {
     bigOperandType = std::max(getType(), rhs.getType());
-    res = Modulo<T>::modulo(val, otherVal);
+    res = Operand::Modulo<T>::modulo(val, otherVal);
     resultName = Operand::Converter<T>::convertValueToName(res);
     return (AbstractVM::getVM()->getOperandFactory()->createOperand(bigOperandType, resultName));
   }
