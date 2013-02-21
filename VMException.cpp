@@ -5,10 +5,11 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Thu Feb 21 10:24:33 2013 sergioandres baezserrano
+// Last update Thu Feb 21 11:47:01 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
+#include <iostream>
 
 VMException::VMException(std::string msg) throw() : message(msg)
 {
@@ -74,6 +75,25 @@ DivisionByZeroException::DivisionByZeroException(std::string msg) throw()
 }
 
 DivisionByZeroException::~DivisionByZeroException() throw()
+{
+}
+
+SyntaxErrorException::SyntaxErrorException(std::string msg, int ln) throw()
+  : VMException(std::string("") + msg)
+{
+    std::cout << "Syntax Error at line: " << ln;
+}
+
+SyntaxErrorException::~SyntaxErrorException() throw()
+{
+}
+
+FileException::FileException(std::string msg) throw()
+  : VMException(std::string("File Error Exception: ") + msg)
+{
+}
+
+FileException::~FileException() throw()
 {
 }
 

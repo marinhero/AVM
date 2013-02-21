@@ -11,9 +11,9 @@ mul
 push double(42.42)
 push int32(42)
 dump
-pop pollo con papas
+;pop pollo con papas
 ;comentario
-tranzi
-asert doble(conqueso)
+;tranzi
+;asert doble(conqueso)
 assert double(42.42)
 exit

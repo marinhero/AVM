@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Thu Feb 21 10:23:19 2013 sergioandres baezserrano
+// Last update Thu Feb 21 11:48:22 2013 sergioandres baezserrano
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -64,6 +64,20 @@ class DivisionByZeroException : public VMException
   public:
     DivisionByZeroException(std::string msg) throw();
     ~DivisionByZeroException() throw();
+};
+
+class SyntaxErrorException : public VMException
+{
+  public:
+   SyntaxErrorException(std::string msg, int ln) throw();
+    ~SyntaxErrorException() throw();
+};
+
+class FileException : public VMException
+{
+  public:
+   FileException(std::string msg) throw();
+    ~FileException() throw();
 };
 
 class StackException : public VMException
