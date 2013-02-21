@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 13:22:43 2013 sergioandres baezserrano
-// Last update Thu Feb 21 16:47:11 2013 sergioandres baezserrano
+// Last update Thu Feb 21 17:32:19 2013 sergioandres baezserrano
 //
 
 #include "InstructionHandler.hh"
@@ -112,6 +112,20 @@ InstructionHandler::DumpHandler::~DumpHandler()
 Instruction::IInstruction *       InstructionHandler::DumpHandler::createInstruction()
 {
   return (new Instruction::Dump());
+}
+
+InstructionHandler::PopHandler::PopHandler()
+  : AInstructionHandler("pop")
+{
+}
+
+InstructionHandler::PopHandler::~PopHandler()
+{
+}
+
+Instruction::IInstruction *       InstructionHandler::PopHandler::createInstruction()
+{
+  return (new Instruction::Pop());
 }
 
 InstructionHandler::PrintHandler::PrintHandler()

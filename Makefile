@@ -1,27 +1,28 @@
 ##
-## Makefile for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
+## Makefile for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
 ##
 ## Made by Marin Alcaraz
 ## Login   <alcara_m@epitech.net>
 ##
 ## Started on  Thu Feb 21 13:16:40 2013 Marin Alcaraz
-## Last update Thu Feb 21 13:28:10 2013 Marin Alcaraz
+## Last update Thu Feb 21 17:49:31 2013 sergioandres baezserrano
 ##
 
 NAME	=	abstractvm
 
-SRC		= CPU.cpp\
-        Data_Manager.cpp\
-        Grammar.cpp\
-        Instruction.cpp\
-        InstructionFactory.cpp\
-        InstructionHandler.cpp\
-        main.cpp\
-        Memory.cpp\
-        Operand.cpp\
-        OperandFactory.cpp\
-        OperandHandler.cpp\
-        VMException.cpp
+SRC	= 	CPU.cpp\
+		Data_Manager.cpp\
+		Grammar.cpp\
+		Instruction.cpp\
+		InstructionFactory.cpp\
+		InstructionHandler.cpp\
+		main.cpp\
+		Memory.cpp\
+		Operand.cpp\
+		OperandFactory.cpp\
+		OperandHandler.cpp\
+		VMException.cpp\
+		AbstractVM.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 

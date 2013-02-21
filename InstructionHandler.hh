@@ -83,6 +83,14 @@ namespace InstructionHandler
       virtual Instruction::IInstruction *       createInstruction();
   };
 
+  class PopHandler : public AInstructionHandler
+  {
+    public:
+      PopHandler();
+      ~PopHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
   class PrintHandler : public AInstructionHandler
   {
     public:

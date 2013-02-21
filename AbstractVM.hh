@@ -12,21 +12,29 @@
 #  define ABSTRACTVM_HH_
 
 #include "OperandFactory.hh"
+#include "InstructionFactory.hh"
 #include "Memory.hh"
+#include "CPU.hh"
 
 class AbstractVM
 {
   protected:
     static  AbstractVM  *theOne;
+    CPU::Core           *cpuCore;
     OperandFactory      *operandFactory;
+    InstructionFactory  *instructionFactory;
     Memory::IStack      *stack;
 
   public:
     AbstractVM();
     ~AbstractVM();
     void initOperands();
+    void initInstructions();
+    void initCpuCore();
     static AbstractVM   *getVM();
+    CPU::Core           *getCpuCore() const;
     OperandFactory      *getOperandFactory() const;
+    InstructionFactory  *getInstructionFactory() const;
     Memory::IStack      *getStack() const;
 };
 
