@@ -11,5 +11,34 @@
 #ifndef MEMORY_HH_
 #  define MEMORY_HH_
 
+#include <vector>
+#include "Operand.hh"
+
+namespace Memory
+{
+  class IStack
+  {
+    public:
+      virtual void push(Operand::IOperand * op) = 0;
+      virtual Operand::IOperand * getTopOperand() = 0;
+      virtual void pop() = 0;
+      virtual void dump() = 0;
+      virtual ~IStack() {}
+  };
+
+  class Stack : public IStack
+  {
+    protected:
+      std::vector<Operand::IOperand *> theStack;
+
+    public:
+      Stack();
+      ~Stack();
+      virtual void push(Operand::IOperand * op);
+      virtual Operand::IOperand * getTopOperand();
+      virtual void pop();
+      virtual void dump();
+  };
+};
 
 #endif /* !MEMORY_HH_ */

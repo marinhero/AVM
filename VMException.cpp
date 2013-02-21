@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Wed Feb 20 21:54:24 2013 Marin Alcaraz
+// Last update Thu Feb 21 11:09:27 2013 Marin Alcaraz
 //
 
 #include "VMException.hh"
@@ -94,5 +94,14 @@ FileException::FileException(std::string msg) throw()
 }
 
 FileException::~FileException() throw()
+{
+}
+
+StackException::StackException(std::string msg) throw()
+  : VMException(std::string("Stack Exception: ") + msg)
+{
+}
+
+StackException::~StackException() throw()
 {
 }

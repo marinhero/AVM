@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Wed Feb 20 21:43:06 2013 Marin Alcaraz
+// Last update Thu Feb 21 11:18:15 2013 Marin Alcaraz
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -78,6 +78,12 @@ class FileException : public VMException
   public:
    FileException(std::string msg) throw();
     ~FileException() throw();
+};
+class StackException : public VMException
+{
+  public:
+    StackException(std::string msg) throw();
+    ~StackException() throw();
 };
 
 #endif
