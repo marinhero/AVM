@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Wed Feb 20 21:54:00 2013 Marin Alcaraz
+// Last update Thu Feb 21 12:50:45 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -119,7 +119,8 @@ void Data_Manager :: read_line()
     while (line.compare(";;"))
     {
         std::getline(std::cin, line);
-        check_line(line, ln);
+        if (line[0] != ';')
+            check_line(line, ln);
         ln = ln + 1;
     }
 }
