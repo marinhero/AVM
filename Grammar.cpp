@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Mon Feb 18 16:47:59 2013 Marin Alcaraz
-// Last update Tue Feb 19 20:54:38 2013 Marin Alcaraz
+// Last update Thu Feb 21 13:31:52 2013 Marin Alcaraz
 //
 
 #include "Grammar.hh"
@@ -18,11 +18,6 @@ Grammar :: Grammar()
 }
 
 Grammar :: ~Grammar()
-{
-
-}
-
-int Grammar :: operator=(Grammar const obj)
 {
 
 }
