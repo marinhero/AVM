@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 12:36:51 2013 sergioandres baezserrano
-// Last update Wed Feb 20 22:12:43 2013 sergioandres baezserrano
+// Last update Thu Feb 21 11:42:37 2013 sergioandres baezserrano
 //
 
 #include "AbstractVM.hh"
@@ -13,6 +13,7 @@
 #include "VMException.hh"
 #include "Memory.hh"
 #include "Operand.hh"
+#include "OperandFactory.hh"
 
 Instruction::AInstruction::AInstruction()
 {
@@ -30,6 +31,45 @@ void    Instruction::AInstruction::addParameter(std::string &param)
 void    Instruction::AInstruction::operator()()
 {
   return (execute());
+}
+
+void    Instruction::AInstruction::end()
+{
+}
+
+Instruction::AInstructionParams::AInstructionParams()
+{
+}
+
+Instruction::AInstructionParams::~AInstructionParams()
+{
+}
+
+void Instruction::AInstructionParams::end()
+{
+  std::list<std::string>::iterator  it;
+  OperandFactory                    *factory;
+  eOperandType                      type;
+  std::string                       str_type;
+  std::string                       str_value;
+
+  if (this->params.size() == 2)
+  {
+    it = this->params.begin();
+    factory = AbstractVM::getVM()->getOperandFactory();
+    str_type = *it;
+    it++;
+    str_value = *it;
+    type = factory->getTypeFromString(str_type);
+    this->op = factory->createOperand(type, str_value);
+    return ();
+  }
+  throw WrongParameterException();
+}
+
+void Instruction::AInstructionParams::addParameter(std::string &param)
+{
+  this->params.push_back(param);
 }
 
 Instruction::Add::Add()

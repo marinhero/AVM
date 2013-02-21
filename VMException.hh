@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Wed Feb 20 20:22:29 2013 sergioandres baezserrano
+// Last update Thu Feb 21 10:23:19 2013 sergioandres baezserrano
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -71,6 +71,13 @@ class StackException : public VMException
   public:
     StackException(std::string msg) throw();
     ~StackException() throw();
+};
+
+class WrongParameterException : public VMException
+{
+  public:
+    WrongParameterException(std::string msg) throw();
+    ~WrongParameterException() throw();
 };
 
 #endif

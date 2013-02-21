@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Wed Feb 20 20:48:57 2013 sergioandres baezserrano
+// Last update Thu Feb 21 10:24:33 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -83,5 +83,14 @@ StackException::StackException(std::string msg) throw()
 }
 
 StackException::~StackException() throw()
+{
+}
+
+WrongParameterException::WrongParameterException(std::string msg) throw()
+  : VMException(std::string("Wrong parameter Exception: ") + msg)
+{
+}
+
+WrongParameterException::~WrongParameterException() throw()
 {
 }

@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 19:36:35 2013 sergioandres baezserrano
-// Last update Tue Feb 19 19:46:02 2013 sergioandres baezserrano
+// Last update Thu Feb 21 10:39:17 2013 sergioandres baezserrano
 //
 
 #include "OperandFactory.hh"
@@ -32,4 +32,18 @@ Operand::IOperand * OperandFactory::createOperand(eOperandType type, const std::
     return (IOhandler->create());
   }
   throw OpNotExistException();
+}
+
+eOperandType        OperandFactory::getTypeFromString(std::string & type)
+{
+  std::map<eOperandType, OperandHandler::IOperandHandler *>::iterator   it;
+
+  it = this->map.begin();
+  while (it != this->map.end())
+  {
+    if ((*it).second->toString() == type)
+      return ((*it).second->getType());
+    ++it;
+  }
+  return (0);
 }

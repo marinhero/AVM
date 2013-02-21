@@ -25,6 +25,7 @@ class OperandFactory
     ~OperandFactory();
     void    addOperandToMap(OperandHandler::IOperandHandler * IOhandler);
     Operand::IOperand * createOperand(eOperandType type, const std::string & value);
+    eOperandType        getTypeFromString(std::string & type);
 };
 
 #endif /* !OPERANDFACORY_HH_ */

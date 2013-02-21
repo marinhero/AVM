@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 18:57:29 2013 sergioandres baezserrano
-// Last update Wed Feb 20 22:12:41 2013 sergioandres baezserrano
+// Last update Thu Feb 21 11:42:38 2013 sergioandres baezserrano
 //
 
 #ifndef INSTRUCTION_HH_
@@ -36,8 +36,7 @@ namespace Instruction
       //virtual void init();
       virtual void addParameter(std::string &param);
       virtual void operator()();
-      virtual void execute() = 0;
-      virtual void end() = 0;
+      virtual void end();
   };
 
   class AInstructionParams : public AInstruction
