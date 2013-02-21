@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Thu Feb 21 12:50:45 2013 Marin Alcaraz
+// Last update Thu Feb 21 13:29:07 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -18,11 +18,6 @@ Data_Manager :: Data_Manager()
 }
 
 Data_Manager :: ~Data_Manager()
-{
-
-}
-
-int Data_Manager :: operator=(Data_Manager const obj)
 {
 
 }
