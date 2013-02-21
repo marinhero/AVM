@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Thu Feb 21 11:48:22 2013 sergioandres baezserrano
+// Last update Thu Feb 21 13:05:29 2013 sergioandres baezserrano
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -94,4 +94,17 @@ class WrongParameterException : public VMException
     ~WrongParameterException() throw();
 };
 
+class PrintErrorException : public VMException
+{
+  public:
+    PrintErrorException(std::string msg) throw();
+    ~PrintErrorException() throw();
+};
+
+class ExitProgramException : public VMException
+{
+  public:
+    ExitProgramException(std::string msg) throw();
+    ~ExitProgramException() throw();
+};
 #endif

@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 18:57:29 2013 sergioandres baezserrano
-// Last update Thu Feb 21 11:42:38 2013 sergioandres baezserrano
+// Last update Thu Feb 21 13:26:59 2013 sergioandres baezserrano
 //
 
 #ifndef INSTRUCTION_HH_
@@ -105,6 +105,30 @@ namespace Instruction
     public:
       Pop();
       ~Pop();
+      void execute();
+  };
+
+  class Print : public AInstruction
+  {
+    public:
+      Print();
+      ~Print();
+      void execute();
+  };
+
+  class Exit : public AInstruction
+  {
+    public:
+      Exit();
+      ~Exit();
+      void execute();
+  };
+
+  class Push : public AInstructionParams
+  {
+    public:
+      Push();
+      ~Push();
       void execute();
   };
 };

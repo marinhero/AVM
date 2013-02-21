@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 13:22:43 2013 sergioandres baezserrano
-// Last update Wed Feb 20 22:01:22 2013 sergioandres baezserrano
+// Last update Thu Feb 21 13:28:35 2013 sergioandres baezserrano
 //
 
 #include "InstructionHandler.hh"
@@ -113,3 +113,32 @@ Instruction::IInstruction *       InstructionHandler::DumpHandler::createInstruc
 {
   return (new Instruction::Dump());
 }
+
+InstructionHandler::PrintHandler::PrintHandler()
+  : AInstructionHandler("print")
+{
+}
+
+InstructionHandler::PrintHandler::~PrintHandler()
+{
+}
+
+Instruction::IInstruction *       InstructionHandler::PrintHandler::createInstruction()
+{
+  return (new Instruction::Print());
+}
+
+InstructionHandler::ExitHandler::ExitHandler()
+  : AInstructionHandler("exit")
+{
+}
+
+InstructionHandler::ExitHandler::~ExitHandler()
+{
+}
+
+Instruction::IInstruction *       InstructionHandler::ExitHandler::createInstruction()
+{
+  return (new Instruction::Exit());
+}
+

@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Thu Feb 21 11:47:01 2013 sergioandres baezserrano
+// Last update Thu Feb 21 13:09:39 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -112,5 +112,23 @@ WrongParameterException::WrongParameterException(std::string msg) throw()
 }
 
 WrongParameterException::~WrongParameterException() throw()
+{
+}
+
+PrintErrorException::PrintErrorException(std::string msg) throw()
+  : VMException(std::string("Print Exception: ") + msg)
+{
+}
+
+PrintErrorException::~PrintErrorException() throw()
+{
+}
+
+ExitProgramException::ExitProgramException(std::string msg) throw()
+  : VMException(std::string("Exit") + msg)
+{
+}
+
+ExitProgramException::~ExitProgramException() throw()
 {
 }

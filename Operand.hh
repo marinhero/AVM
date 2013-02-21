@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:45:54 2013 sergioandres baezserrano
-// Last update Wed Feb 20 19:45:39 2013 sergioandres baezserrano
+// Last update Thu Feb 21 12:31:37 2013 sergioandres baezserrano
 //
 
 #ifndef OPERAND_HH_
@@ -21,7 +21,8 @@ typedef enum
   TYPE_INT16,
   TYPE_INT32,
   TYPE_FLOAT,
-  TYPE_DOUBLE
+  TYPE_DOUBLE,
+  TYPE_UNDEF
 } eOperandType;
 
 enum

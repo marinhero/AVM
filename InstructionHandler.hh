@@ -82,6 +82,30 @@ namespace InstructionHandler
       ~DumpHandler();
       virtual Instruction::IInstruction *       createInstruction();
   };
+
+  class PrintHandler : public AInstructionHandler
+  {
+    public:
+      PrintHandler();
+      ~PrintHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
+  class ExitHandler : public AInstructionHandler
+  {
+    public:
+      ExitHandler();
+      ~ExitHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
+
+  class PushHandler : public AInstructionHandler
+  {
+    public:
+      PushHandler();
+      ~PushHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
 };
 
 #endif /* !INSTRUCTIONHANDLER_H_ */

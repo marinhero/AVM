@@ -5,9 +5,10 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 12:36:51 2013 sergioandres baezserrano
-// Last update Thu Feb 21 11:42:37 2013 sergioandres baezserrano
+// Last update Thu Feb 21 13:25:52 2013 sergioandres baezserrano
 //
 
+#include <iostream>
 #include "AbstractVM.hh"
 #include "Instruction.hh"
 #include "VMException.hh"
@@ -62,9 +63,9 @@ void Instruction::AInstructionParams::end()
     str_value = *it;
     type = factory->getTypeFromString(str_type);
     this->op = factory->createOperand(type, str_value);
-    return ();
+    return ;
   }
-  throw WrongParameterException();
+  throw WrongParameterException("wrong parameters");
 }
 
 void Instruction::AInstructionParams::addParameter(std::string &param)
@@ -206,4 +207,57 @@ Instruction::Pop::~Pop()
 void Instruction::Pop::execute()
 {
   AbstractVM::getVM()->getStack()->pop();
+}
+
+Instruction::Print::Print()
+{
+}
+
+Instruction::Print::~Print()
+{
+}
+
+void Instruction::Print::execute()
+{
+  Operand::IOperand *   op;
+  std::stringstream     convInt;
+  std::stringstream     convChar;
+  int                   bitsInt;
+
+  op = AbstractVM::getVM()->getStack()->getTopOperand();
+  convInt << op->toString();
+  convInt >> bitsInt;
+  if (bitsInt >= 0 && bitsInt < 256)
+  {
+    convChar << (char) bitsInt;
+    std::cout   << convChar.str();
+    return ;
+  }
+  throw PrintErrorException("the value is no an 8bit integer");
+}
+
+Instruction::Exit::Exit()
+{
+}
+
+Instruction::Exit::~Exit()
+{
+}
+
+void Instruction::Exit::execute()
+{
+  throw ExitProgramException("");
+}
+
+Instruction::Push::Push()
+{
+}
+
+Instruction::Push::~Push()
+{
+}
+
+void Instruction::Push::execute()
+{
+  AbstractVM::getVM()->getStack()->push(this->op);
 }
