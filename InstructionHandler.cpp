@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 13:22:43 2013 sergioandres baezserrano
-// Last update Thu Feb 21 13:28:35 2013 sergioandres baezserrano
+// Last update Thu Feb 21 16:47:11 2013 sergioandres baezserrano
 //
 
 #include "InstructionHandler.hh"
@@ -142,3 +142,30 @@ Instruction::IInstruction *       InstructionHandler::ExitHandler::createInstruc
   return (new Instruction::Exit());
 }
 
+InstructionHandler::PushHandler::PushHandler()
+  : AInstructionHandler("push")
+{
+}
+
+InstructionHandler::PushHandler::~PushHandler()
+{
+}
+
+Instruction::IInstruction *       InstructionHandler::PushHandler::createInstruction()
+{
+  return (new Instruction::Push());
+}
+
+InstructionHandler::AssertHandler::AssertHandler()
+  : AInstructionHandler("assert")
+{
+}
+
+InstructionHandler::AssertHandler::~AssertHandler()
+{
+}
+
+Instruction::IInstruction *       InstructionHandler::AssertHandler::createInstruction()
+{
+  return (new Instruction::Assert());
+}
