@@ -1,16 +1,17 @@
 //
-// Data_Manager.cpp for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
+// Data_Manager.cpp for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
 //
 // Made by Marin Alcaraz
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Thu Feb 21 13:29:07 2013 Marin Alcaraz
+// Last update Thu Feb 21 20:51:49 2013 sergioandres baezserrano
 //
 
 #include "Data_Manager.hh"
 #include "Grammar.hh"
 #include "VMException.hh"
+#include "CPU.hh"
 
 Data_Manager :: Data_Manager()
 {
@@ -88,6 +89,30 @@ std::string Data_Manager :: get_sequence(std::string str)
     return (code);
 }
 
+Instruction::IInstruction   *Data_Manager::createInstruction(std::string str)
+{
+  int   piv;
+  int   piv2;
+  std::string tmp = "";
+  std::string bk = "";
+  Instruction::IInstruction *instruction;
+
+  bk = str;
+  piv = str.find(" ");
+  tmp = str.substr(0, piv);
+  instruction = AbstractVM::getVM()->getInstructionFactory()->createInstruction(tmp);
+  str = str.substr(piv + 1);
+  piv2 = str.find("(");
+  tmp = str.substr(0, piv2);
+  instruction->addParameter(tmp);
+  str = str.substr(piv2 + 1);
+  piv2 = bk.find("(");
+  bk = bk.substr(piv + 1, (bk.length() - piv) - 2);
+  instruction->addParameter(bk);
+  instruction->end();
+  return (instruction);
+}
+
 int Data_Manager :: check_line(std::string str, int line)
 {
     std::string code = "";
@@ -120,12 +145,14 @@ void Data_Manager :: read_line()
     }
 }
 
-void Data_Manager :: read_file(char *file_name)
+CPU::ALU *Data_Manager :: read_file(char *file_name)
 {
     int         flag;
     int         ln;
     std::string line;
+    CPU::ALU    *instructions;
 
+    instructions = new CPU::ALU();
     flag = 1;
     ln = 1;
     std::ifstream myfile (file_name);
@@ -138,12 +165,20 @@ void Data_Manager :: read_file(char *file_name)
             if (line[0] != ';' && line.empty() != true)
                 flag *= check_line(line, ln);
             ln = ln + 1;
+            if (flag == 1)
+              instructions->addInstrunction(this->createInstruction(line));
         }
         myfile.close();
         if (flag == 1)
+        {
             this->set_file_status(1);
+            return (instructions);
+        }
         else
+        {
             this->set_file_status(0);
+            return (NULL);
+        }
     }
     else
         throw FileException("error opening file");
@@ -152,9 +187,13 @@ void Data_Manager :: read_file(char *file_name)
 void Data_Manager :: read_from(int flag, char *file_name)
 {
     std::string line;
+    CPU::ALU    *alu;
 
     if (flag == 0)
         read_line();
     if (flag == 1)
-        read_file(file_name);
+    {
+        alu = read_file(file_name);
+        AbstractVM::getVM()->getCpuCore()->execute(alu);
+    }
 }
