@@ -106,6 +106,14 @@ namespace InstructionHandler
       ~PushHandler();
       virtual Instruction::IInstruction *       createInstruction();
   };
+
+  class AssertHandler : public AInstructionHandler
+  {
+    public:
+      AssertHandler();
+      ~AssertHandler();
+      virtual Instruction::IInstruction *       createInstruction();
+  };
 };
 
 #endif /* !INSTRUCTIONHANDLER_H_ */

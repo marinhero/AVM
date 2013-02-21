@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 18:57:29 2013 sergioandres baezserrano
-// Last update Thu Feb 21 13:26:59 2013 sergioandres baezserrano
+// Last update Thu Feb 21 16:40:09 2013 sergioandres baezserrano
 //
 
 #ifndef INSTRUCTION_HH_
@@ -129,6 +129,14 @@ namespace Instruction
     public:
       Push();
       ~Push();
+      void execute();
+  };
+
+  class Assert : public AInstructionParams
+  {
+    public:
+      Assert();
+      ~Assert();
       void execute();
   };
 };

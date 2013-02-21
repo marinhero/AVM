@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 11:28:51 2013 sergioandres baezserrano
-// Last update Thu Feb 21 13:09:39 2013 sergioandres baezserrano
+// Last update Thu Feb 21 16:39:17 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -130,5 +130,14 @@ ExitProgramException::ExitProgramException(std::string msg) throw()
 }
 
 ExitProgramException::~ExitProgramException() throw()
+{
+}
+
+AssertException::AssertException(std::string msg) throw()
+  : VMException(std::string("Assert Exception") + msg)
+{
+}
+
+AssertException::~AssertException() throw()
 {
 }

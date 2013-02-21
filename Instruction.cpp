@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 12:36:51 2013 sergioandres baezserrano
-// Last update Thu Feb 21 13:25:52 2013 sergioandres baezserrano
+// Last update Thu Feb 21 16:44:02 2013 sergioandres baezserrano
 //
 
 #include <iostream>
@@ -260,4 +260,23 @@ Instruction::Push::~Push()
 void Instruction::Push::execute()
 {
   AbstractVM::getVM()->getStack()->push(this->op);
+}
+
+Instruction::Assert::Assert()
+{
+}
+
+Instruction::Assert::~Assert()
+{
+}
+
+void Instruction::Assert::execute()
+{
+  Operand::IOperand *top;
+  Operand::IOperand *actual;
+
+  top = AbstractVM::getVM()->getStack()->getTopOperand();
+  actual = this->op;
+  if (top->toString() != actual->toString())
+    throw AssertException("Assert with the value: " + actual->toString());
 }

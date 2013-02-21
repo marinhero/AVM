@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Thu Feb 21 13:05:29 2013 sergioandres baezserrano
+// Last update Thu Feb 21 16:39:27 2013 sergioandres baezserrano
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -107,4 +107,12 @@ class ExitProgramException : public VMException
     ExitProgramException(std::string msg) throw();
     ~ExitProgramException() throw();
 };
+
+class AssertException : public VMException
+{
+  public:
+    AssertException(std::string msg) throw();
+    ~AssertException() throw();
+};
+
 #endif
