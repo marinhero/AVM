@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Fri Feb 22 13:49:28 2013 sergioandres baezserrano
+// Last update Fri Feb 22 16:42:25 2013 sergioandres baezserrano
 //
 
 #include "Data_Manager.hh"
@@ -140,6 +140,7 @@ CPU::ALU *Data_Manager :: read_line()
 
     line = " ";
     ln = 1;
+    instructions = new CPU::ALU();
     while (line.compare(";;"))
     {
         std::getline(std::cin, line);
