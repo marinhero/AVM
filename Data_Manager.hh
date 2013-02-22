@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Sat Feb 16 10:58:43 2013 Marin Alcaraz
-// Last update Thu Feb 21 20:45:31 2013 sergioandres baezserrano
+// Last update Fri Feb 22 13:37:42 2013 sergioandres baezserrano
 //
 
 #ifndef DATA_MANAGER_HPP
@@ -37,7 +37,7 @@ class Data_Manager
     char*                       get_file_name(void) const;
     void                        set_file_name(char *);
     int                         check_line(std::string str, int);
-    void                        read_line();
+    CPU::ALU                    *read_line();
     CPU::ALU                    *read_file(char *);
     std::string                 get_sequence(std::string);
     Instruction::IInstruction   *createInstruction(std::string);

@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Fri Feb 22 10:48:12 2013 sergioandres baezserrano
+// Last update Fri Feb 22 13:49:28 2013 sergioandres baezserrano
 //
 
 #include "Data_Manager.hh"
@@ -132,10 +132,11 @@ int Data_Manager :: check_line(std::string str, int line)
     return (0);
 }
 
-void Data_Manager :: read_line()
+CPU::ALU *Data_Manager :: read_line()
 {
     int         ln;
     std::string line;
+    CPU::ALU    *instructions;
 
     line = " ";
     ln = 1;
@@ -143,9 +144,14 @@ void Data_Manager :: read_line()
     {
         std::getline(std::cin, line);
         if (line[0] != ';')
+        {
             check_line(line, ln);
+            instructions->addInstrunction(this->createInstruction(line));
+        }
         ln = ln + 1;
+        return (instructions);
     }
+    return (NULL);
 }
 
 CPU::ALU *Data_Manager :: read_file(char *file_name)
@@ -195,7 +201,10 @@ void Data_Manager :: read_from(int flag, char *file_name)
     CPU::ALU    *alu;
 
     if (flag == 0)
-        read_line();
+    {
+        alu = read_line();
+        AbstractVM::getVM()->getCpuCore()->execute(alu);
+    }
     if (flag == 1)
     {
         alu = read_file(file_name);
