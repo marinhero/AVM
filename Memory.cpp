@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Wed Feb 20 20:18:17 2013 sergioandres baezserrano
-// Last update Fri Feb 22 13:02:52 2013 sergioandres baezserrano
+// Last update Fri Feb 22 13:08:27 2013 sergioandres baezserrano
 //
 
 #include <iostream>
@@ -31,7 +31,7 @@ Operand::IOperand * Memory::Stack::getTopOperand()
 
   size = this->theStack.size();
   if (this->theStack.empty() == false)
-    return (this->theStack.at(size - 0));
+    return (this->theStack.at(size - 1));
   throw StackException("Empty Stack");
 }
 
