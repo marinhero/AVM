@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Wed Feb 20 20:18:17 2013 sergioandres baezserrano
-// Last update Fri Feb 22 13:08:27 2013 sergioandres baezserrano
+// Last update Fri Feb 22 13:14:56 2013 sergioandres baezserrano
 //
 
 #include <iostream>
@@ -39,7 +39,8 @@ void Memory::Stack::pop()
 {
   if (this->theStack.empty() == false)
     this->theStack.pop_back();
-  throw StackException("Empty Stack");
+  else
+    throw StackException("Empty Stack");
 }
 
 void Memory::Stack::dump()
