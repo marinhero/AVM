@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Fri Feb 22 16:42:25 2013 sergioandres baezserrano
+// Last update Fri Feb 22 17:23:08 2013 sergioandres baezserrano
 //
 
 #include "Data_Manager.hh"
@@ -141,9 +141,10 @@ CPU::ALU *Data_Manager :: read_line()
     line = " ";
     ln = 1;
     instructions = new CPU::ALU();
+    std::getline(std::cin, line);
     while (line.compare(";;"))
     {
-        std::getline(std::cin, line);
+    //    std::getline(std::cin, line);
         if (line[0] != ';')
         {
             check_line(line, ln);
@@ -200,10 +201,17 @@ void Data_Manager :: read_from(int flag, char *file_name)
 {
     std::string line;
     CPU::ALU    *alu;
+    int         read;
 
+    read = 1;
     if (flag == 0)
     {
-        alu = read_line();
+        while (read != 0)
+        {
+          alu = this->read_line();
+          if (alu == NULL)
+            read = 0;
+        }
         AbstractVM::getVM()->getCpuCore()->execute(alu);
     }
     if (flag == 1)
