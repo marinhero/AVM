@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Thu Feb 21 17:14:43 2013 sergioandres baezserrano
-// Last update Thu Feb 21 18:08:15 2013 sergioandres baezserrano
+// Last update Thu Feb 21 21:05:12 2013 sergioandres baezserrano
 //
 
 #include "AbstractVM.hh"
@@ -68,7 +68,7 @@ void AbstractVM::initCpuCore()
 
 AbstractVM   *AbstractVM::getVM()
 {
-  if (theOne)
+  if (theOne == NULL)
     theOne = new AbstractVM();
   return (theOne);
 }

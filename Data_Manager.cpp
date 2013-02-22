@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Thu Feb 21 20:51:49 2013 sergioandres baezserrano
+// Last update Thu Feb 21 21:07:46 2013 sergioandres baezserrano
 //
 
 #include "Data_Manager.hh"
@@ -163,10 +163,12 @@ CPU::ALU *Data_Manager :: read_file(char *file_name)
         {
             getline (myfile, line);
             if (line[0] != ';' && line.empty() != true)
-                flag *= check_line(line, ln);
+            {
+              flag *= check_line(line, ln);
+              if (flag == 1)
+                instructions->addInstrunction(this->createInstruction(line));
+            }
             ln = ln + 1;
-            if (flag == 1)
-              instructions->addInstrunction(this->createInstruction(line));
         }
         myfile.close();
         if (flag == 1)
