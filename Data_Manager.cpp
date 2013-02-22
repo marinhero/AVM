@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Thu Feb 21 21:07:46 2013 sergioandres baezserrano
+// Last update Fri Feb 22 10:04:13 2013 sergioandres baezserrano
 //
 
 #include "Data_Manager.hh"
@@ -106,7 +106,7 @@ Instruction::IInstruction   *Data_Manager::createInstruction(std::string str)
   tmp = str.substr(0, piv2);
   instruction->addParameter(tmp);
   str = str.substr(piv2 + 1);
-  piv2 = bk.find("(");
+  piv = bk.find("(");
   bk = bk.substr(piv + 1, (bk.length() - piv) - 2);
   instruction->addParameter(bk);
   instruction->end();

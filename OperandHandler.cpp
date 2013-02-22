@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 19:04:51 2013 sergioandres baezserrano
-// Last update Wed Feb 20 19:49:42 2013 sergioandres baezserrano
+// Last update Fri Feb 22 09:59:33 2013 sergioandres baezserrano
 //
 
 #include "OperandHandler.hh"
@@ -35,7 +35,7 @@ eOperandType OperandHandler::AOperandHandler::getType() const
 }
 
 OperandHandler::Int8Handler::Int8Handler()
-  : AOperandHandler(std::string("Int8Handler"), TYPE_INT8, PRESICION_INT8)
+  : AOperandHandler(std::string("int8"), TYPE_INT8, PRESICION_INT8)
 {
 }
 
@@ -49,7 +49,7 @@ Operand::IOperand * OperandHandler::Int8Handler::create(const std::string &val)
 }
 
 OperandHandler::Int16Handler::Int16Handler()
-  : AOperandHandler(std::string("Int16Handler"), TYPE_INT16, PRESICION_INT16)
+  : AOperandHandler(std::string("int16"), TYPE_INT16, PRESICION_INT16)
 {
 }
 
@@ -63,7 +63,7 @@ Operand::IOperand * OperandHandler::Int16Handler::create(const std::string &val)
 }
 
 OperandHandler::Int32Handler::Int32Handler()
-  : AOperandHandler(std::string("Int32Handler"), TYPE_INT32, PRESICION_INT32)
+  : AOperandHandler(std::string("int32"), TYPE_INT32, PRESICION_INT32)
 {
 }
 
@@ -77,7 +77,7 @@ Operand::IOperand * OperandHandler::Int32Handler::create(const std::string &val)
 }
 
 OperandHandler::FloatHandler::FloatHandler()
-  : AOperandHandler(std::string("FloatHandler"), TYPE_FLOAT, PRESICION_FLOAT)
+  : AOperandHandler(std::string("float"), TYPE_FLOAT, PRESICION_FLOAT)
 {
 }
 
@@ -91,7 +91,7 @@ Operand::IOperand * OperandHandler::FloatHandler::create(const std::string &val)
 }
 
 OperandHandler::DoubleHandler::DoubleHandler()
-  : AOperandHandler(std::string("DoubleHandler"), TYPE_DOUBLE, PRESICION_DOUBLE)
+  : AOperandHandler(std::string("double"), TYPE_DOUBLE, PRESICION_DOUBLE)
 {
 }
 
