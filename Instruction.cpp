@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 12:36:51 2013 sergioandres baezserrano
-// Last update Fri Feb 22 10:55:31 2013 sergioandres baezserrano
+// Last update Fri Feb 22 12:59:39 2013 sergioandres baezserrano
 //
 
 #include <iostream>
@@ -88,7 +88,6 @@ void Instruction::Add::execute()
   Operand::IOperand     *dos;
 
   stack = AbstractVM::getVM()->getStack();
-  //vector check!!!
   uno = stack->getTopOperand();
   stack->pop();
   dos = stack->getTopOperand();

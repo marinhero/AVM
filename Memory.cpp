@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Wed Feb 20 20:18:17 2013 sergioandres baezserrano
-// Last update Wed Feb 20 20:48:58 2013 sergioandres baezserrano
+// Last update Fri Feb 22 13:02:52 2013 sergioandres baezserrano
 //
 
 #include <iostream>
@@ -27,8 +27,11 @@ void Memory::Stack::push(Operand::IOperand * op)
 
 Operand::IOperand * Memory::Stack::getTopOperand()
 {
+  std::vector<Operand::IOperand *>::size_type size;
+
+  size = this->theStack.size();
   if (this->theStack.empty() == false)
-    return (this->theStack.at(this->theStack.size()));
+    return (this->theStack.at(size - 0));
   throw StackException("Empty Stack");
 }
 
