@@ -19,10 +19,10 @@ namespace Memory
   class IStack
   {
     public:
-      virtual void push(Operand::IOperand * op) = 0;
-      virtual Operand::IOperand * getTopOperand() = 0;
-      virtual void pop() = 0;
-      virtual void dump() = 0;
+      virtual void                  push(Operand::IOperand * op) = 0;
+      virtual Operand::IOperand *   getTopOperand() const = 0;
+      virtual void                  pop() = 0;
+      virtual void                  dump() = 0;
       virtual ~IStack() {}
   };
 
@@ -35,9 +35,9 @@ namespace Memory
       Stack();
       ~Stack();
       virtual void push(Operand::IOperand * op);
-      virtual Operand::IOperand * getTopOperand();
-      virtual void pop();
-      virtual void dump();
+      virtual Operand::IOperand *   getTopOperand() const;
+      virtual void                  pop();
+      virtual void                  dump();
   };
 };
 
