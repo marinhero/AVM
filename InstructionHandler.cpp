@@ -1,16 +1,16 @@
 //
-// InstructionHandler.cpp for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// InstructionHandler.cpp for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by sergioandres baezserrano
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 13:22:43 2013 sergioandres baezserrano
-// Last update Thu Feb 21 17:32:19 2013 sergioandres baezserrano
+// Last update Sat Feb 23 14:31:24 2013 Sergio Baez
 //
 
 #include "InstructionHandler.hh"
 
-InstructionHandler::AInstructionHandler::AInstructionHandler(std::string IName)
+InstructionHandler::AInstructionHandler::AInstructionHandler(const std::string & IName)
   :InstructionName(IName)
 {
 }
@@ -24,7 +24,7 @@ const std::string & InstructionHandler::AInstructionHandler::getInstructionName(
   return (this->InstructionName);
 }
 
-Instruction::IInstruction * InstructionHandler::AInstructionHandler::create()
+Instruction::IInstruction * InstructionHandler::AInstructionHandler::create() const
 {
   Instruction::IInstruction  *instruct = createInstruction();
   return (instruct);
@@ -39,7 +39,7 @@ InstructionHandler::AddHandler::~AddHandler()
 {
 }
 
-Instruction::IInstruction * InstructionHandler::AddHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::AddHandler::createInstruction() const
 {
   return (new Instruction::Add());
 }
@@ -53,7 +53,7 @@ InstructionHandler::SubHandler::~SubHandler()
 {
 }
 
-Instruction::IInstruction * InstructionHandler::SubHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::SubHandler::createInstruction() const
 {
   return (new Instruction::Sub());
 }
@@ -67,7 +67,7 @@ InstructionHandler::MulHandler::~MulHandler()
 {
 }
 
-Instruction::IInstruction * InstructionHandler::MulHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::MulHandler::createInstruction() const
 {
   return (new Instruction::Mul());
 }
@@ -81,7 +81,7 @@ InstructionHandler::DivHandler::~DivHandler()
 {
 }
 
-Instruction::IInstruction * InstructionHandler::DivHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::DivHandler::createInstruction() const
 {
   return (new Instruction::Div());
 }
@@ -95,7 +95,7 @@ InstructionHandler::ModHandler::~ModHandler()
 {
 }
 
-Instruction::IInstruction * InstructionHandler::ModHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::ModHandler::createInstruction() const
 {
   return (new Instruction::Mod());
 }
@@ -109,7 +109,7 @@ InstructionHandler::DumpHandler::~DumpHandler()
 {
 }
 
-Instruction::IInstruction *       InstructionHandler::DumpHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::DumpHandler::createInstruction() const
 {
   return (new Instruction::Dump());
 }
@@ -123,7 +123,7 @@ InstructionHandler::PopHandler::~PopHandler()
 {
 }
 
-Instruction::IInstruction *       InstructionHandler::PopHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::PopHandler::createInstruction() const
 {
   return (new Instruction::Pop());
 }
@@ -137,7 +137,7 @@ InstructionHandler::PrintHandler::~PrintHandler()
 {
 }
 
-Instruction::IInstruction *       InstructionHandler::PrintHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::PrintHandler::createInstruction() const
 {
   return (new Instruction::Print());
 }
@@ -151,7 +151,7 @@ InstructionHandler::ExitHandler::~ExitHandler()
 {
 }
 
-Instruction::IInstruction *       InstructionHandler::ExitHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::ExitHandler::createInstruction() const
 {
   return (new Instruction::Exit());
 }
@@ -165,7 +165,7 @@ InstructionHandler::PushHandler::~PushHandler()
 {
 }
 
-Instruction::IInstruction *       InstructionHandler::PushHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::PushHandler::createInstruction() const
 {
   return (new Instruction::Push());
 }
@@ -179,7 +179,7 @@ InstructionHandler::AssertHandler::~AssertHandler()
 {
 }
 
-Instruction::IInstruction *       InstructionHandler::AssertHandler::createInstruction()
+Instruction::IInstruction * InstructionHandler::AssertHandler::createInstruction() const
 {
   return (new Instruction::Assert());
 }

@@ -25,8 +25,7 @@ class InstructionFactory
     InstructionFactory();
     ~InstructionFactory();
     void                            addInstructionToMap(InstructionHandler::IInstrunctionHandler * Ihandler);
-    Instruction::IInstruction *     createInstruction(std::string IName);
-    //std::list<std::string>          getInstructions();
+    Instruction::IInstruction *     createInstruction(const std::string & IName);
 };
 
 #endif /* !INSTRUCTIONFACTORY_HH_ */

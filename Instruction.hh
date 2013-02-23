@@ -1,11 +1,11 @@
 //
-// Instruction.hh for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// Instruction.hh for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by sergioandres baezserrano
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 18:57:29 2013 sergioandres baezserrano
-// Last update Fri Feb 22 18:17:56 2013 sergioandres baezserrano
+// Last update Sat Feb 23 14:17:07 2013 Sergio Baez
 //
 
 #ifndef INSTRUCTION_HH_
@@ -20,11 +20,10 @@ namespace Instruction
   class IInstruction
   {
     public:
-      //virtual void init() = 0;
       virtual void end() = 0;
       virtual void execute() const = 0;
-      virtual void addParameter(std::string &param) = 0;
-      virtual void operator()() = 0;
+      virtual void addParameter(const std::string &param) = 0;
+      //virtual void operator()() = 0;
       virtual ~IInstruction() {}
   };
 
@@ -33,9 +32,8 @@ namespace Instruction
     public:
       AInstruction();
       virtual ~AInstruction();
-      //virtual void init();
-      virtual void addParameter(std::string &param);
-      virtual void operator()();
+      virtual void addParameter(const std::string &param);
+      //virtual void operator()();
       virtual void end();
   };
 
@@ -49,7 +47,7 @@ namespace Instruction
       AInstructionParams();
       virtual ~AInstructionParams();
       virtual void end();
-      virtual void addParameter(std::string &param);
+      virtual void addParameter(const std::string &param);
   };
 
   class Add : public AInstruction

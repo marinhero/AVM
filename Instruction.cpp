@@ -1,11 +1,11 @@
 //
-// Instruction.cpp for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// Instruction.cpp for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by sergioandres baezserrano
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 12:36:51 2013 sergioandres baezserrano
-// Last update Fri Feb 22 18:17:06 2013 sergioandres baezserrano
+// Last update Sat Feb 23 14:16:55 2013 Sergio Baez
 //
 
 #include <iostream>
@@ -24,15 +24,15 @@ Instruction::AInstruction::~AInstruction()
 {
 }
 
-void    Instruction::AInstruction::addParameter(std::string &param)
+void    Instruction::AInstruction::addParameter(const std::string &param)
 {
   throw BadParameterException(param + " - this instruction does not need parameter");
 }
 
-void    Instruction::AInstruction::operator()()
-{
-  return (execute());
-}
+//void    Instruction::AInstruction::operator()()
+//{
+//  return (execute());
+//}
 
 void    Instruction::AInstruction::end()
 {
@@ -68,7 +68,7 @@ void Instruction::AInstructionParams::end()
   throw WrongParameterException("wrong parameters");
 }
 
-void Instruction::AInstructionParams::addParameter(std::string &param)
+void Instruction::AInstructionParams::addParameter(const std::string &param)
 {
   this->params.push_back(param);
 }
