@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:45:54 2013 sergioandres baezserrano
-// Last update Thu Feb 21 12:31:37 2013 sergioandres baezserrano
+// Last update Sat Feb 23 13:04:08 2013 sergioandres baezserrano
 //
 
 #ifndef OPERAND_HH_
@@ -39,14 +39,14 @@ namespace Operand
   class IOperand
   {
     public:
-      virtual std::string const & toString() const = 0;
-      virtual int getPresicion() const = 0;
-      virtual eOperandType getType() const = 0;
-      virtual IOperand * operator+(const IOperand &rhs) const = 0;
-      virtual IOperand * operator-(const IOperand &rhs) const = 0;
-      virtual IOperand * operator*(const IOperand &rhs) const = 0;
-      virtual IOperand * operator/(const IOperand &rhs) const = 0;
-      virtual IOperand * operator%(const IOperand &rhs) const = 0;
+      virtual std::string const &   toString() const = 0;
+      virtual int                   getPresicion() const = 0;
+      virtual eOperandType          getType() const = 0;
+      virtual IOperand              *operator+(const IOperand &rhs) const = 0;
+      virtual IOperand              *operator-(const IOperand &rhs) const = 0;
+      virtual IOperand              *operator*(const IOperand &rhs) const = 0;
+      virtual IOperand              *operator/(const IOperand &rhs) const = 0;
+      virtual IOperand              *operator%(const IOperand &rhs) const = 0;
       virtual ~IOperand() {}
   };
 
@@ -59,15 +59,15 @@ namespace Operand
       eOperandType  type;
       int           precision;
     public:
-      AOperand(std::string name, eOperandType type, int precision);
-      virtual std::string const & toString() const;
-      virtual int getPresicion() const;
-      virtual eOperandType getType() const;
-      virtual IOperand * operator+(const IOperand &rhs) const;
-      virtual IOperand * operator-(const IOperand &rhs) const;
-      virtual IOperand * operator*(const IOperand &rhs) const;
-      virtual IOperand * operator/(const IOperand &rhs) const;
-      virtual IOperand * operator%(const IOperand &rhs) const;
+      AOperand(const std::string &name, eOperandType type, int precision);
+      virtual std::string const &   toString() const;
+      virtual int                   getPresicion() const;
+      virtual eOperandType          getType() const;
+      virtual IOperand              *operator+(const IOperand &rhs) const;
+      virtual IOperand              *operator-(const IOperand &rhs) const;
+      virtual IOperand              *operator*(const IOperand &rhs) const;
+      virtual IOperand              *operator/(const IOperand &rhs) const;
+      virtual IOperand              *operator%(const IOperand &rhs) const;
       virtual ~AOperand();
   };
 
@@ -110,7 +110,7 @@ namespace Operand
     class Converter
     {
       public:
-      static T             convertNameToValue(std::string name)
+      static T             convertNameToValue(const std::string &name)
       {
         T   value;
         std::stringstream conv;
@@ -119,7 +119,7 @@ namespace Operand
         return (value);
       }
 
-      static std::string   convertValueToName(T val)
+      static std::string const  convertValueToName(const T &val)
       {
         std::string name;
         std::stringstream conv;
@@ -133,7 +133,7 @@ namespace Operand
     class Converter<char>
     {
       public:
-      static char             convertNameToValue(std::string name)
+      static char            convertNameToValue(const std::string &name)
       {
         int number;
         std::stringstream conv;
@@ -142,7 +142,7 @@ namespace Operand
         return ((char) number);
       }
 
-      static std::string   convertValueToName(char val)
+      static std::string const    convertValueToName(char &val)
       {
         std::string name;
         std::stringstream conv;
