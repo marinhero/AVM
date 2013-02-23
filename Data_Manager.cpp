@@ -1,11 +1,11 @@
 //
-// Data_Manager.cpp for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// Data_Manager.cpp for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
 //
 // Made by Marin Alcaraz
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Fri Feb 22 17:30:53 2013 sergioandres baezserrano
+// Last update Fri Feb 22 18:25:29 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -55,17 +55,39 @@ void Data_Manager :: set_file_name(char *name)
     this->name = name;
 }
 
+int Data_Manager :: check_number(std::string number, int line)
+{
+   unsigned int  i;
+   int  flag;
 
-int Data_Manager :: string_to_int(std::string str)
+   i = 0;
+   flag = 0;
+   while ((number[i] >= '0' && number[i] <= '9')
+           && (flag <= 1)
+           || (number[i] == '.'))
+   {
+       if (number[i] == '.')
+           flag = flag + 1;
+       i = i + 1;
+   }
+   if (i == number.length())
+       return (1);
+   else
+       throw (SyntaxErrorException(" Invalid parameter", line));
+   return (0);
+}
+
+int Data_Manager :: string_to_int(std::string str, int line)
 {
     int number;
-    std::stringstream ss(str);
 
+    check_number(str, line);
+    std::stringstream ss(str);
     ss >> number;
     return (number);
 }
 
-std::string Data_Manager :: get_sequence(std::string str)
+std::string Data_Manager :: get_sequence(std::string str, int line)
 {
     int     piv;
     int     piv2;
@@ -84,8 +106,8 @@ std::string Data_Manager :: get_sequence(std::string str)
     str = str.substr(piv2 + 1);
     piv = bk.find("(");
     bk = bk.substr(piv + 1, (bk.length() - piv) - 2);
-    if (this->string_to_int(bk) > 0)
-        code = code + 'C';
+    this->string_to_int(bk, line);
+    code = code + 'C';
     return (code);
 }
 
@@ -122,13 +144,13 @@ int Data_Manager :: check_line(std::string str, int line)
 
     if (this->is_valid_word(str) == 'Z')
     {
-        code = this->get_sequence(str);
+        code = this->get_sequence(str, line);
         if (code.compare("ABC") == 0)
             return (1);
     }
     else
         return (1);
-    throw SyntaxErrorException("", line);
+    throw SyntaxErrorException(" Invalid Keyword", line);
     return (0);
 }
 
