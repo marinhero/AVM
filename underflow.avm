@@ -1,0 +1,10 @@
+;-------
+;underflow.avm
+;------
+
+
+push int32(100000)
+push int32(-100000)
+mul
+dump
+exit

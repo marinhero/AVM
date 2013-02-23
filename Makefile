@@ -5,7 +5,7 @@
 ## Login   <alcara_m@epitech.net>
 ##
 ## Started on  Thu Feb 21 13:16:40 2013 Marin Alcaraz
-## Last update Thu Feb 21 20:56:49 2013 Marin Alcaraz
+## Last update Fri Feb 22 13:32:01 2013 Marin Alcaraz
 ##
 
 NAME	=	abstractvm
@@ -26,7 +26,7 @@ SRC	= 	CPU.cpp\
 
 OBJ		=	$(SRC:.cpp=.o)
 
-CFLAGS	=	-Wall -Wextra -W -g3
+CFLAGS	=	-Wall -Wextra -Werror
 
 CC		=	g++
 

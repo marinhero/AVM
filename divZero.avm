@@ -1,0 +1,10 @@
+;----------
+;divZero.avm
+;----------
+
+
+push int32(0)
+push int32(42)
+div
+dump
+exit

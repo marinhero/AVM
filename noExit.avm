@@ -1,0 +1,7 @@
+;----------
+;noExit.avm
+;----------
+
+push int32(32)
+push int32(3242)
+dump

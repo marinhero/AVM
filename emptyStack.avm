@@ -1,0 +1,7 @@
+;----------
+;emptyStack.avm
+;----------
+
+pop
+push int32(42)
+exit

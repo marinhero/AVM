@@ -1,0 +1,7 @@
+;--------
+;notEnough.avm
+;--------
+
+push int32(48)
+mul
+exit
