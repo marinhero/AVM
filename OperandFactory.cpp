@@ -1,11 +1,11 @@
 //
-// OperandFactory.cpp for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// OperandFactory.cpp for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by sergioandres baezserrano
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 19:36:35 2013 sergioandres baezserrano
-// Last update Thu Feb 21 12:31:43 2013 sergioandres baezserrano
+// Last update Sat Feb 23 14:06:24 2013 Sergio Baez
 //
 
 #include "OperandFactory.hh"
@@ -34,7 +34,7 @@ Operand::IOperand * OperandFactory::createOperand(eOperandType type, const std::
   throw OpNotExistException("The operand does not exist");
 }
 
-eOperandType        OperandFactory::getTypeFromString(std::string & type)
+eOperandType        OperandFactory::getTypeFromString(const std::string & type)
 {
   std::map<eOperandType, OperandHandler::IOperandHandler *>::iterator   it;
 
