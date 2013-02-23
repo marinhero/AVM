@@ -1,16 +1,16 @@
 //
-// OperandHandler.cpp for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// OperandHandler.cpp for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by sergioandres baezserrano
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 19:04:51 2013 sergioandres baezserrano
-// Last update Fri Feb 22 09:59:33 2013 sergioandres baezserrano
+// Last update Sat Feb 23 13:43:11 2013 Sergio Baez
 //
 
 #include "OperandHandler.hh"
 
-OperandHandler::AOperandHandler::AOperandHandler(std::string _name, eOperandType _type, int _precision)
+OperandHandler::AOperandHandler::AOperandHandler(const std::string &_name, eOperandType _type, int _precision)
   : name(_name), type(_type), precision(_precision)
 {
 }
@@ -43,7 +43,7 @@ OperandHandler::Int8Handler::~Int8Handler()
 {
 }
 
-Operand::IOperand * OperandHandler::Int8Handler::create(const std::string &val)
+Operand::IOperand * OperandHandler::Int8Handler::create(const std::string &val) const
 {
   return (new Operand::Int8(val));
 }
@@ -57,7 +57,7 @@ OperandHandler::Int16Handler::~Int16Handler()
 {
 }
 
-Operand::IOperand * OperandHandler::Int16Handler::create(const std::string &val)
+Operand::IOperand * OperandHandler::Int16Handler::create(const std::string &val) const
 {
   return (new Operand::Int16(val));
 }
@@ -71,7 +71,7 @@ OperandHandler::Int32Handler::~Int32Handler()
 {
 }
 
-Operand::IOperand * OperandHandler::Int32Handler::create(const std::string &val)
+Operand::IOperand * OperandHandler::Int32Handler::create(const std::string &val) const
 {
   return (new Operand::Int32(val));
 }
@@ -85,7 +85,7 @@ OperandHandler::FloatHandler::~FloatHandler()
 {
 }
 
-Operand::IOperand * OperandHandler::FloatHandler::create(const std::string &val)
+Operand::IOperand * OperandHandler::FloatHandler::create(const std::string &val) const
 {
   return (new Operand::Float(val));
 }
@@ -99,7 +99,7 @@ OperandHandler::DoubleHandler::~DoubleHandler()
 {
 }
 
-Operand::IOperand * OperandHandler::DoubleHandler::create(const std::string &val)
+Operand::IOperand * OperandHandler::DoubleHandler::create(const std::string &val) const
 {
   return (new Operand::Double(val));
 }

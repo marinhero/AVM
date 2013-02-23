@@ -18,10 +18,10 @@ namespace OperandHandler
   class IOperandHandler
   {
     public:
-      virtual std::string const & toString() const = 0;
-      virtual int getPresicion() const = 0;
-      virtual eOperandType getType() const = 0;
-      virtual Operand::IOperand * create(const std::string & val) = 0;
+      virtual std::string const &   toString() const = 0;
+      virtual int                   getPresicion() const = 0;
+      virtual eOperandType          getType() const = 0;
+      virtual Operand::IOperand     *create(const std::string &val) const = 0;
   };
 
   class AOperandHandler : public IOperandHandler
@@ -31,12 +31,12 @@ namespace OperandHandler
       eOperandType  type;
       int           precision;
     public:
-      AOperandHandler(std::string name, eOperandType type, int precision);
+      AOperandHandler(const std::string &name, eOperandType type, int precision);
       virtual ~AOperandHandler();
-      virtual std::string const & toString() const;
-      virtual int getPresicion() const;
-      virtual eOperandType getType() const;
-      virtual Operand::IOperand * create(const std::string & val) = 0;
+      virtual std::string const &   toString() const;
+      virtual int                   getPresicion() const;
+      virtual eOperandType          getType() const;
+      virtual Operand::IOperand     *create(const std::string & val) const = 0;
   };
 
   class Int8Handler : public AOperandHandler
@@ -44,7 +44,7 @@ namespace OperandHandler
     public:
       Int8Handler();
       ~Int8Handler();
-      virtual Operand::IOperand * create(const std::string &val);
+      virtual Operand::IOperand * create(const std::string &val) const;
   };
 
   class Int16Handler : public AOperandHandler
@@ -52,7 +52,7 @@ namespace OperandHandler
     public:
       Int16Handler();
       ~Int16Handler();
-      virtual Operand::IOperand * create(const std::string &val);
+      virtual Operand::IOperand * create(const std::string &val) const;
   };
 
   class Int32Handler : public AOperandHandler
@@ -60,7 +60,7 @@ namespace OperandHandler
     public:
       Int32Handler();
       ~Int32Handler();
-      virtual Operand::IOperand * create(const std::string &val);
+      virtual Operand::IOperand * create(const std::string &val) const;
   };
 
   class FloatHandler : public AOperandHandler
@@ -68,7 +68,7 @@ namespace OperandHandler
     public:
       FloatHandler();
       ~FloatHandler();
-      virtual Operand::IOperand * create(const std::string &val);
+      virtual Operand::IOperand * create(const std::string &val) const;
   };
 
   class DoubleHandler : public AOperandHandler
@@ -76,7 +76,7 @@ namespace OperandHandler
     public:
       DoubleHandler();
       ~DoubleHandler();
-      virtual Operand::IOperand * create(const std::string &val);
+      virtual Operand::IOperand * create(const std::string &val) const;
   };
 };
 

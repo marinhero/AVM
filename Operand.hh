@@ -1,11 +1,11 @@
 //
-// Operand.hh for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// Operand.hh for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by sergioandres baezserrano
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:45:54 2013 sergioandres baezserrano
-// Last update Sat Feb 23 13:22:39 2013 sergioandres baezserrano
+// Last update Sat Feb 23 13:35:43 2013 Sergio Baez
 //
 
 #ifndef OPERAND_HH_
@@ -133,7 +133,7 @@ namespace Operand
     class Converter<char>
     {
       public:
-      static char const       convertNameToValue(const std::string &name)
+      static char        convertNameToValue(const std::string &name)
       {
         int number;
         std::stringstream conv;
@@ -156,7 +156,7 @@ namespace Operand
     class Modulo
     {
       public:
-        static T modulo(T a, T b)
+        static T modulo(const T &a, const T &b)
         {
           return (a % b);
         }
@@ -166,7 +166,7 @@ namespace Operand
     class Modulo<float>
     {
       public:
-        static float modulo(float a, float b)
+        static float modulo(const float &a, const float &b)
         {
           return (std::fmod(a, b));
         }
@@ -176,7 +176,7 @@ namespace Operand
     class Modulo<double>
     {
       public:
-        static double modulo(double a, double b)
+        static double modulo(const double &a, const double &b)
         {
           return (std::fmod(a, b));
         }
