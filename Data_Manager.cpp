@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Sat Feb 23 13:33:23 2013 Marin Alcaraz
+// Last update Sat Feb 23 13:40:56 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -65,10 +65,8 @@ int Data_Manager :: check_number(std::string number, int line)
    i = 0;
    dot_flag = 0;
    minus_flag = 0;
-   while ((number[i] >= '0' && number[i] <= '9')
-           && (dot_flag <= 1) && (minus_flag <= 1)
-           || (number[i] == '.')
-           || (number[i] == '-'))
+   while (((number[i] >= '0' && number[i] <= '9') || ((number[i] == '.') || (number[i] == '-')))
+            && ((dot_flag <= 1) && (minus_flag <= 1)))
    {
        if (number[i] == '.')
            dot_flag = dot_flag + 1;

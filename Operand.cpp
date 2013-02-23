@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:51:53 2013 sergioandres baezserrano
-// Last update Wed Feb 20 19:55:28 2013 sergioandres baezserrano
+// Last update Sat Feb 23 12:49:19 2013 sergioandres baezserrano
 //
 
 #include <cmath>
@@ -14,7 +14,7 @@
 #include "VMException.hh"
 
 template<typename T>
-Operand::AOperand<T>::AOperand(std::string _name, eOperandType _type, int _precision)
+Operand::AOperand<T>::AOperand(const std::string &_name, eOperandType _type, int _precision)
   : type(_type), precision(_precision)
 {
   this->val = Operand::Converter<T>::convertNameToValue(_name);
