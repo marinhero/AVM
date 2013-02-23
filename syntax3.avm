@@ -6,23 +6,11 @@
 ;::: ##:::: ##::::::: ##:. ##::'##:::: ##:'##::: ##:: ##::
 ;::: ##:::: ########: ##::. ##:. #######::. ######::'####:
 ;:::..:::::........::..::::..:::.......::::......:::....::
-;---------
-;sample.avm
-;----------
 
 
-push int32(42)
-push int32(33)
-add
-push float(44.55)
+push int32(32)
+push int32(34-)
+push int32(23)
 mul
-push double(42.42)
-push int32(42)
 dump
-;pop pollo con papas
-;comentario
-;tranzi
-;asert doble(conqueso)
-pop
-assert double(42.42)
 exit
