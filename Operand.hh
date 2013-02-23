@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Sat Feb 16 12:45:54 2013 sergioandres baezserrano
-// Last update Sat Feb 23 13:04:08 2013 sergioandres baezserrano
+// Last update Sat Feb 23 13:22:39 2013 sergioandres baezserrano
 //
 
 #ifndef OPERAND_HH_
@@ -110,7 +110,7 @@ namespace Operand
     class Converter
     {
       public:
-      static T             convertNameToValue(const std::string &name)
+      static T const           convertNameToValue(const std::string &name)
       {
         T   value;
         std::stringstream conv;
@@ -133,7 +133,7 @@ namespace Operand
     class Converter<char>
     {
       public:
-      static char            convertNameToValue(const std::string &name)
+      static char const       convertNameToValue(const std::string &name)
       {
         int number;
         std::stringstream conv;
