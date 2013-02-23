@@ -1,11 +1,11 @@
 //
-// Data_Manager.cpp for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
+// Data_Manager.cpp for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
 //
 // Made by Marin Alcaraz
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Sat Feb 23 13:16:13 2013 Sergio Baez
+// Last update Sat Feb 23 13:40:56 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -103,10 +103,14 @@ std::string Data_Manager :: get_sequence(std::string str, int line)
     piv = str.find(" ");
     tmp = str.substr(0, piv);
     code = this->is_valid_word(tmp);
+    if (code[0] == 'Z')
+        throw SyntaxErrorException(" Invalid Keyword", line);
     str = str.substr(piv + 1);
     piv2 = str.find("(");
     tmp = str.substr(0,piv2);
     code = code + this->is_valid_word(tmp);
+    if (code[1] == 'Z')
+        throw SyntaxErrorException(" Undefined data type", line);
     str = str.substr(piv2 + 1);
     piv = bk.find("(");
     bk = bk.substr(piv + 1, (bk.length() - piv) - 2);
