@@ -5,7 +5,7 @@
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Sat Feb 23 12:21:52 2013 Marin Alcaraz
+// Last update Sat Feb 23 13:33:23 2013 Marin Alcaraz
 //
 
 #include "Data_Manager.hh"
@@ -105,10 +105,14 @@ std::string Data_Manager :: get_sequence(std::string str, int line)
     piv = str.find(" ");
     tmp = str.substr(0, piv);
     code = this->is_valid_word(tmp);
+    if (code[0] == 'Z')
+        throw SyntaxErrorException(" Invalid Keyword", line);
     str = str.substr(piv + 1);
     piv2 = str.find("(");
     tmp = str.substr(0,piv2);
     code = code + this->is_valid_word(tmp);
+    if (code[1] == 'Z')
+        throw SyntaxErrorException(" Undefined data type", line);
     str = str.substr(piv2 + 1);
     piv = bk.find("(");
     bk = bk.substr(piv + 1, (bk.length() - piv) - 2);
