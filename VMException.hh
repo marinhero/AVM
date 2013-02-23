@@ -1,11 +1,11 @@
 //
-// VMException.hh for abstractvm in /Users/sabs231/Documents/EPITECH/Classes/C++/Projects/AbstractVM/abstractvm
+// VMException.hh for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by Marin Alcaraz
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:55 2013 Marin Alcaraz
-// Last update Thu Feb 21 16:39:27 2013 sergioandres baezserrano
+// Last update Sat Feb 23 14:57:55 2013 Sergio Baez
 //
 
 #ifndef VMEXCEPTION_HH_
@@ -19,7 +19,7 @@ class VMException : public std::exception
   protected:
     std::string             message;
   public:
-    VMException(std::string msg) throw();
+    VMException(const std::string & msg) throw();
     virtual const char *    what() const throw();
     ~VMException() throw();
 };
@@ -27,91 +27,91 @@ class VMException : public std::exception
 class OverflowException : public VMException
 {
   public:
-    OverflowException(std::string msg) throw();
+    OverflowException(const std::string & msg) throw();
     ~OverflowException() throw();
 };
 
 class ExitInstException : public VMException
 {
   public:
-    ExitInstException(std::string msg) throw();
+    ExitInstException(const std::string & msg) throw();
     ~ExitInstException() throw();
 };
 
 class BadParameterException : public VMException
 {
   public:
-    BadParameterException(std::string msg) throw();
+    BadParameterException(const std::string & msg) throw();
     ~BadParameterException() throw();
 };
 
 class InstNotExistException : public VMException
 {
   public:
-    InstNotExistException(std::string msg) throw();
+    InstNotExistException(const std::string & msg) throw();
     ~InstNotExistException() throw();
 };
 
 class OpNotExistException : public VMException
 {
   public:
-    OpNotExistException(std::string msg) throw();
+    OpNotExistException(const std::string & msg) throw();
     ~OpNotExistException() throw();
 };
 
 class DivisionByZeroException : public VMException
 {
   public:
-    DivisionByZeroException(std::string msg) throw();
+    DivisionByZeroException(const std::string & msg) throw();
     ~DivisionByZeroException() throw();
 };
 
 class SyntaxErrorException : public VMException
 {
   public:
-   SyntaxErrorException(std::string msg, int ln) throw();
+   SyntaxErrorException(const std::string & msg, int ln) throw();
     ~SyntaxErrorException() throw();
 };
 
 class FileException : public VMException
 {
   public:
-   FileException(std::string msg) throw();
+   FileException(const std::string & msg) throw();
     ~FileException() throw();
 };
 
 class StackException : public VMException
 {
   public:
-    StackException(std::string msg) throw();
+    StackException(const std::string & msg) throw();
     ~StackException() throw();
 };
 
 class WrongParameterException : public VMException
 {
   public:
-    WrongParameterException(std::string msg) throw();
+    WrongParameterException(const std::string & msg) throw();
     ~WrongParameterException() throw();
 };
 
 class PrintErrorException : public VMException
 {
   public:
-    PrintErrorException(std::string msg) throw();
+    PrintErrorException(const std::string & msg) throw();
     ~PrintErrorException() throw();
 };
 
 class ExitProgramException : public VMException
 {
   public:
-    ExitProgramException(std::string msg) throw();
+    ExitProgramException(const std::string & msg) throw();
     ~ExitProgramException() throw();
 };
 
 class AssertException : public VMException
 {
   public:
-    AssertException(std::string msg) throw();
+    AssertException(const std::string & msg) throw();
     ~AssertException() throw();
 };
 
