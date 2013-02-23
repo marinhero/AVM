@@ -1,11 +1,11 @@
 //
-// Data_Manager.cpp for abstractvm in /Users/Marin/EPITECH/c++/abstractvm
+// Data_Manager.cpp for abstractvm in /home/baezse_s/CPP/projects/AbstractVM/abstractvm
 //
 // Made by Marin Alcaraz
 // Login   <alcara_m@epitech.net>
 //
 // Started on  Fri Feb 15 11:25:18 2013 Marin Alcaraz
-// Last update Sat Feb 23 12:21:52 2013 Marin Alcaraz
+// Last update Sat Feb 23 13:16:13 2013 Sergio Baez
 //
 
 #include "Data_Manager.hh"
@@ -65,10 +65,8 @@ int Data_Manager :: check_number(std::string number, int line)
    i = 0;
    dot_flag = 0;
    minus_flag = 0;
-   while ((number[i] >= '0' && number[i] <= '9')
-           && (dot_flag <= 1) && (minus_flag <= 1)
-           || (number[i] == '.')
-           || (number[i] == '-'))
+   while (((number[i] >= '0' && number[i] <= '9') || ((number[i] == '.') || (number[i] == '-')))
+            && ((dot_flag <= 1) && (minus_flag <= 1)))
    {
        if (number[i] == '.')
            dot_flag = dot_flag + 1;
