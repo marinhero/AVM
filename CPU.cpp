@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 20:53:27 2013 sergioandres baezserrano
-// Last update Fri Feb 22 18:57:08 2013 sergioandres baezserrano
+// Last update Sat Feb 23 12:12:53 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -53,7 +53,7 @@ CPU::Core::~Core()
 {
 }
 
-void CPU::Core::execute(CPU::ALU * instructions)
+void CPU::Core::execute(CPU::ALU * instructions) const
 {
   Instruction::IInstruction const * inst;
 
@@ -67,5 +67,5 @@ void CPU::Core::execute(CPU::ALU * instructions)
   {
     return ;
   }
-  throw ExitInstException("There is no exist instruction");
+  throw ExitInstException("There is no exit instruction");
 }

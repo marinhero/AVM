@@ -37,7 +37,7 @@ namespace CPU
     public:
       Core();
       ~Core();
-      void  execute(ALU * instructions);
+      void  execute(ALU * instructions) const;
   };
 };
 
