@@ -26,10 +26,10 @@ namespace CPU
     public:
       ALU();
       ~ALU();
-      size_t                        instructionSize() const;
-      void                          addInstrunction(Instruction::IInstruction * instruction);
-      void                          prepareInstructions();
-      Instruction::IInstruction *   nextInstruction();
+      size_t                                            instructionSize() const;
+      void                                              addInstrunction(Instruction::IInstruction * instruction);
+      void                                              prepareInstructions();
+      Instruction::IInstruction const                   *nextInstruction();
   };
 
   class Core
@@ -37,7 +37,7 @@ namespace CPU
     public:
       Core();
       ~Core();
-      void  execute(ALU * instructions);
+      void  execute(ALU * instructions) const;
   };
 };
 

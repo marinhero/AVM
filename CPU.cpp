@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 20:53:27 2013 sergioandres baezserrano
-// Last update Fri Feb 22 13:49:27 2013 sergioandres baezserrano
+// Last update Sat Feb 23 12:12:53 2013 sergioandres baezserrano
 //
 
 #include "VMException.hh"
@@ -19,22 +19,22 @@ CPU::ALU::~ALU()
 {
 }
 
-size_t                        CPU::ALU::instructionSize() const
+size_t                              CPU::ALU::instructionSize() const
 {
   return (this->instructions.size());
 }
 
-void                          CPU::ALU::addInstrunction(Instruction::IInstruction * instruction)
+void                                CPU::ALU::addInstrunction(Instruction::IInstruction * instruction)
 {
   this->instructions.push_back(instruction);
 }
 
-void                          CPU::ALU::prepareInstructions()
+void                                CPU::ALU::prepareInstructions()
 {
   this->position = this->instructions.begin();
 }
 
-Instruction::IInstruction *   CPU::ALU::nextInstruction()
+Instruction::IInstruction const     *CPU::ALU::nextInstruction()
 {
   Instruction::IInstruction     *instruct;
 
@@ -53,9 +53,9 @@ CPU::Core::~Core()
 {
 }
 
-void CPU::Core::execute(CPU::ALU * instructions)
+void CPU::Core::execute(CPU::ALU * instructions) const
 {
-  Instruction::IInstruction * inst;
+  Instruction::IInstruction const * inst;
 
   try
   {
@@ -67,5 +67,5 @@ void CPU::Core::execute(CPU::ALU * instructions)
   {
     return ;
   }
-  throw ExitInstException("There is no exist instruction");
+  throw ExitInstException("There is no exit instruction");
 }

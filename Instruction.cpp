@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Tue Feb 19 12:36:51 2013 sergioandres baezserrano
-// Last update Fri Feb 22 12:59:39 2013 sergioandres baezserrano
+// Last update Fri Feb 22 18:17:06 2013 sergioandres baezserrano
 //
 
 #include <iostream>
@@ -81,7 +81,7 @@ Instruction::Add::~Add()
 {
 }
 
-void Instruction::Add::execute()
+void Instruction::Add::execute() const
 {
   Memory::IStack        *stack;
   Operand::IOperand     *uno;
@@ -103,7 +103,7 @@ Instruction::Sub::~Sub()
 {
 }
 
-void Instruction::Sub::execute()
+void Instruction::Sub::execute() const
 {
   Memory::IStack        *stack;
   Operand::IOperand     *uno;
@@ -125,7 +125,7 @@ Instruction::Mul::~Mul()
 {
 }
 
-void Instruction::Mul::execute()
+void Instruction::Mul::execute() const
 {
   Memory::IStack        *stack;
   Operand::IOperand     *uno;
@@ -147,7 +147,7 @@ Instruction::Div::~Div()
 {
 }
 
-void Instruction::Div::execute()
+void Instruction::Div::execute() const
 {
   Memory::IStack        *stack;
   Operand::IOperand     *uno;
@@ -169,7 +169,7 @@ Instruction::Mod::~Mod()
 {
 }
 
-void Instruction::Mod::execute()
+void Instruction::Mod::execute() const
 {
   Memory::IStack        *stack;
   Operand::IOperand     *uno;
@@ -191,7 +191,7 @@ Instruction::Dump::~Dump()
 {
 }
 
-void Instruction::Dump::execute()
+void Instruction::Dump::execute() const
 {
   AbstractVM::getVM()->getStack()->dump();
 }
@@ -204,7 +204,7 @@ Instruction::Pop::~Pop()
 {
 }
 
-void Instruction::Pop::execute()
+void Instruction::Pop::execute() const
 {
   AbstractVM::getVM()->getStack()->pop();
 }
@@ -217,7 +217,7 @@ Instruction::Print::~Print()
 {
 }
 
-void Instruction::Print::execute()
+void Instruction::Print::execute() const
 {
   Operand::IOperand *   op;
   std::stringstream     convInt;
@@ -244,7 +244,7 @@ Instruction::Exit::~Exit()
 {
 }
 
-void Instruction::Exit::execute()
+void Instruction::Exit::execute() const
 {
   throw ExitProgramException("");
 }
@@ -257,7 +257,7 @@ Instruction::Push::~Push()
 {
 }
 
-void Instruction::Push::execute()
+void Instruction::Push::execute() const
 {
   AbstractVM::getVM()->getStack()->push(this->op);
 }
@@ -270,7 +270,7 @@ Instruction::Assert::~Assert()
 {
 }
 
-void Instruction::Assert::execute()
+void Instruction::Assert::execute() const
 {
   Operand::IOperand *top;
   Operand::IOperand *actual;

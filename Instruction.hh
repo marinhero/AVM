@@ -5,7 +5,7 @@
 // Login   <baezse_s@epitech.net>
 //
 // Started on  Mon Feb 18 18:57:29 2013 sergioandres baezserrano
-// Last update Thu Feb 21 16:40:09 2013 sergioandres baezserrano
+// Last update Fri Feb 22 18:17:56 2013 sergioandres baezserrano
 //
 
 #ifndef INSTRUCTION_HH_
@@ -22,7 +22,7 @@ namespace Instruction
     public:
       //virtual void init() = 0;
       virtual void end() = 0;
-      virtual void execute() = 0;
+      virtual void execute() const = 0;
       virtual void addParameter(std::string &param) = 0;
       virtual void operator()() = 0;
       virtual ~IInstruction() {}
@@ -57,7 +57,7 @@ namespace Instruction
     public:
       Add();
       ~Add();
-      void  execute();
+      void  execute() const;
   };
 
   class Sub : public AInstruction
@@ -65,7 +65,7 @@ namespace Instruction
     public:
       Sub();
       ~Sub();
-      void execute();
+      void execute() const;
   };
 
   class Mul : public AInstruction
@@ -73,7 +73,7 @@ namespace Instruction
     public:
       Mul();
       ~Mul();
-      void execute();
+      void execute() const;
   };
 
   class Div : public AInstruction
@@ -81,7 +81,7 @@ namespace Instruction
     public:
       Div();
       ~Div();
-      void execute();
+      void execute() const;
   };
 
   class Mod : public AInstruction
@@ -89,7 +89,7 @@ namespace Instruction
     public:
       Mod();
       ~Mod();
-      void execute();
+      void execute() const;
   };
 
   class Dump : public AInstruction
@@ -97,7 +97,7 @@ namespace Instruction
     public:
       Dump();
       ~Dump();
-      void execute();
+      void execute() const;
   };
 
   class Pop : public AInstruction
@@ -105,7 +105,7 @@ namespace Instruction
     public:
       Pop();
       ~Pop();
-      void execute();
+      void execute() const;
   };
 
   class Print : public AInstruction
@@ -113,7 +113,7 @@ namespace Instruction
     public:
       Print();
       ~Print();
-      void execute();
+      void execute() const;
   };
 
   class Exit : public AInstruction
@@ -121,7 +121,7 @@ namespace Instruction
     public:
       Exit();
       ~Exit();
-      void execute();
+      void execute() const;
   };
 
   class Push : public AInstructionParams
@@ -129,7 +129,7 @@ namespace Instruction
     public:
       Push();
       ~Push();
-      void execute();
+      void execute() const;
   };
 
   class Assert : public AInstructionParams
@@ -137,7 +137,7 @@ namespace Instruction
     public:
       Assert();
       ~Assert();
-      void execute();
+      void execute() const;
   };
 };
 
